@@ -1,1 +1,5 @@
-### Aim of the experiment
+Permeability is the property by which we can know the ability of material to transmit fluid/gases. The permeability is commonly tested to see if it is correct for the casting conditions.
+
+**Affecting factors** The grain size, shape and distribution of the foundry sand, the type and quantity of bonding materials, the density to which the sand is rammed, and the percentage of moisture used for tempering the sand are important factors in regulating the degree of permeability.
+
+[Read More](Exp-6 Permeability.pdf)

@@ -1,18 +1,93 @@
 [
-{"question":"This is a Sample Question 1?",
+{"question":"1. Constant head method is suitable for _________ type of soils",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"Coarse grained soils",
+            "b":"Fine grained soils",
+            "c":"Cohesive soils",
+            "d":"Cohesion less soils"
           },
 "correctAnswer":"a"},
-{"question":"This is a Sample Question 2?",
+
+{"question":"2. Variable head test is suitable for _______ type of soils",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"Coarse grained soils",
+            "b":"Fine grained soils",
+            "c":"Cohesive soils",
+            "d":"Cohesion less soils"
           },
-"correctAnswer":"c"} 
+"correctAnswer":"b"}, 
+
+{"question":"3. Which test is used to find the coefficient of permeability of a partially saturated soil",
+"answers":{
+            "a":"Constant head method",
+            "b":"Variable head test",
+            "c":"Capillary permeability test",
+            "d":"Consolidation test data"
+          },
+ "correctAnswer":"c"},
+
+{"question":"4. For a fully saturated soil ______ is the permeability",
+"answers":{
+            "a":"More",
+            "b":"Less",
+            "c":"Zero",
+            "d":"Both a and b"
+          },
+"correctAnswer":"a"},
+
+{"question":"5. Coefficient of permeability by variable head test is given by",
+"answers":{
+            "a":"k=al/At ln(h1/h2)",
+            "b":"k=a/At ln(h2/h1)",
+            "c":"k=al/At ln(h2/h1)",
+            "d":"k=a/At ln(h1/h2)"
+          },
+"correctAnswer":"a"},
+
+{"question":"6. If size of the particle increases 2 times then K increases to ",
+"answers":{
+            "a":"4 Times",
+            "b":"2 Times",
+            "c":"Decreases",
+            "d":"Remains same"
+          },
+"correctAnswer":"a"},
+
+{"question":"7. Soil with largest void ratio have ______permeability",
+"answers":{
+            "a":"Less",
+            "b":"More",
+            "c":"Equal",
+            "d":"Zero"
+          },
+"correctAnswer":"a"},
+
+{"question":"8. Due to change of temperature, the ᵞw and µ of the liquid reduced by 10% and 40% respectively. What is the change in the permeability of the soil ",
+"answers":{
+            "a":"Reduces by 10%",
+            "b":"Reduces by 90%",
+            "c":"Reduces by 40%",
+            "d":"Both a and b"
+          },
+"correctAnswer":"d"},
+
+{"question":"9. Permeable soil has a K (cm/sec)value of ",
+"answers":{
+            "a":"> 0.1",
+            "b":"< 0",
+            "c":"=0",
+            "d":"None"
+          },
+"correctAnswer":"a"},
+
+{"question":"10. Coefficient of permeability is also called as",
+"answers":{
+            "a":"Hydraulic conductivity",
+            "b":"Conductivity",
+            "c":"Energy of water",
+            "d":"Potential of water"
+          },
+"correctAnswer":"a"}
+
+
 ]
