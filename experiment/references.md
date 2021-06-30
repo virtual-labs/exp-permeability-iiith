@@ -1,1 +1,3 @@
-### Link your references in here
+- [EE Library - Constant Head Test] (https://elementaryengineeringlibrary.com/civil-engineering/soil-mechanics/constant-head-permeability-test)
+- [EE Library - Variable Head Test] (https://elementaryengineeringlibrary.com/civil-engineering/soil-mechanics/falling-head-variable-head-permeability-method)
+- Soil Mechanics Laboratory Manual, Braja M. Das
