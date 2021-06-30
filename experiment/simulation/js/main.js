@@ -117,37 +117,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	};
 
 	class soil {
-		constructor(height, width, radius, x, y) {
+		constructor(height, width, x, y) {
 			this.height = height;
 			this.width = width;
-			this.radius = radius;
 			this.pos = [x, y];
 		};
 
 		draw(ctx) {
-			if(this.width < 2 * this.radius) 
-			{
-				this.radius = this.width / 2;
-			}
-
-			if(this.height < 2 * this.radius) 
-			{
-				this.radius = this.height / 2;
-			}
-
 			ctx.beginPath();
 			ctx.fillStyle = "#654321";
-			ctx.lineWidth = lineWidth;
+			ctx.lineWidth = 0.001;
 			ctx.beginPath();
-	
-			ctx.moveTo(this.pos[0] + this.radius, this.pos[1]);
-			ctx.arcTo(this.pos[0] + this.width, this.pos[1], this.pos[0] + this.width, this.pos[1] + this.height, this.radius);
-			ctx.arcTo(this.pos[0] + this.width, this.pos[1] + this.height, this.pos[0], this.pos[1] + this.height, this.radius);
-			ctx.arcTo(this.pos[0], this.pos[1] + this.height, this.pos[0], this.pos[1], this.radius);
-			ctx.arcTo(this.pos[0], this.pos[1], this.pos[0] + this.width, this.pos[1], this.radius);
-			ctx.closePath();
-			ctx.fill();
-			ctx.stroke();
+			ctx.rect(this.pos[0], this.pos[1], this.width, this.height);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
@@ -163,13 +144,65 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.height = height;
 			this.width = width;
 			this.pos = [x, y];
-			this.img = new Image();
-			this.img.src = './images/weighing-machine.png';
-			this.img.onload = () => { ctx.drawImage(this.img, this.pos[0], this.pos[1], this.width, this.height); }; 
+			this.filter = false;
 		};
 
 		draw(ctx) {
-			ctx.drawImage(objs['permeameter'].img, objs['permeameter'].pos[0], objs['permeameter'].pos[1], objs['permeameter'].width, objs['permeameter'].height);
+			const mouldWidth = 0.6 * this.width, mouldHeight = 0.8 * this.height, filterHeight = 0.15 * mouldHeight, filPipeLen = 0.3 * (this.height - mouldHeight), pipeWidth = 0.05 * this.height, gap = 0.05 * this.height, pipesMargin = 0.2 * (this.width - mouldWidth);
+			ctx.lineWidth = 4;
+
+			// Main mould
+			ctx.fillStyle = "white";
+			ctx.beginPath();
+			ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight + filterHeight, mouldWidth, mouldHeight - 2 * filterHeight);
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+
+			// Green filters
+			ctx.fillStyle = "green";
+			if(this.filter)
+			{
+				ctx.beginPath();
+				ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight, mouldWidth, filterHeight);
+				ctx.rect(this.pos[0], this.pos[1] + this.height - filterHeight, mouldWidth, filterHeight);
+				ctx.closePath();
+				ctx.fill();
+				ctx.stroke();
+
+				ctx.beginPath();
+
+				ctx.moveTo(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + filPipeLen);
+				ctx.lineTo(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + this.height - mouldHeight)
+				ctx.moveTo(this.pos[0] + mouldWidth / 2 + pipeWidth / 2, this.pos[1] + filPipeLen);
+				ctx.lineTo(this.pos[0] + mouldWidth / 2 + pipeWidth / 2, this.pos[1] + this.height - mouldHeight)
+
+				ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height);
+				ctx.lineTo(this.pos[0] + mouldWidth + 840 * filPipeLen / 400, this.pos[1] + this.height)
+				ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth);
+				ctx.lineTo(this.pos[0] + mouldWidth + 840 * filPipeLen / 400, this.pos[1] + this.height - pipeWidth)
+				ctx.stroke();
+			}
+	
+			ctx.fillStyle = "white";
+			ctx.beginPath();
+
+			ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - filterHeight - gap);
+			ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height - filterHeight - gap);
+			ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height - filterHeight - (this.height - mouldHeight + filterHeight + pipeWidth + gap)); 
+
+			ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - filterHeight - gap - pipeWidth);
+			ctx.lineTo(this.pos[0] + this.width - pipeWidth, this.pos[1] + this.height - filterHeight - gap - pipeWidth);
+			ctx.lineTo(this.pos[0] + this.width - pipeWidth, this.pos[1] + this.height - filterHeight - (this.height - mouldHeight + filterHeight + pipeWidth + gap));
+
+			ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - mouldHeight + filterHeight + pipeWidth + gap);
+			ctx.lineTo(this.pos[0] + this.width - pipeWidth - pipesMargin, this.pos[1] + this.height - mouldHeight + filterHeight + pipeWidth + gap);
+			ctx.lineTo(this.pos[0] + this.width - pipeWidth - pipesMargin, this.pos[1]);
+
+			ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - mouldHeight + filterHeight + gap);
+			ctx.lineTo(this.pos[0] + this.width - 2 * pipeWidth - pipesMargin, this.pos[1] + this.height - mouldHeight + filterHeight + gap);
+			ctx.lineTo(this.pos[0] + this.width - 2 * pipeWidth - pipesMargin, this.pos[1]);
+			ctx.stroke();
 		};
 	};
 
@@ -178,60 +211,24 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.height = height;
 			this.width = width;
 			this.pos = [x, y];
+			this.waterHeight = 40;
 		};
 
 		draw(ctx) {
-			// Outline
-			ctx.fillStyle = "white";
-			ctx.lineWidth = 3;
+			ctx.lineWidth = 0.001;
+			ctx.fillStyle = "#1ca3ec";
 			ctx.beginPath();
-			ctx.rect(this.pos[0], this.pos[1], this.width, this.height);
+			ctx.rect(this.pos[0], this.pos[1] + (this.height - this.waterHeight), this.width, this.waterHeight);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
-			// Lower division(red part)
-			const divide = 0.80;
-			ctx.fillStyle = "red";
-			ctx.lineWidth = lineWidth;
+			ctx.lineWidth = 4;
 			ctx.beginPath();
-			ctx.rect(this.pos[0], this.pos[1] + divide * this.height, this.width, (1 - divide) * this.height);
-			ctx.closePath();
-			ctx.fill();
-			ctx.stroke();
-
-			// Main segment(pink part)
-			const gap = 0.05;
-			ctx.fillStyle = "pink";
-			ctx.lineWidth = lineWidth;
-			ctx.beginPath();
-			ctx.rect(this.pos[0] + gap * this.width, this.pos[1] + gap * this.height, (1 - 2 * gap) * this.width, (divide - gap) * this.height);
-			ctx.closePath();
-			ctx.fill();
-			ctx.stroke();
-
-			// Horizontal rectangle at bottom
-			const margin = [0.30, 0.05];
-			ctx.fillStyle = "white";
-			ctx.lineWidth = lineWidth;
-			ctx.beginPath();
-			ctx.rect(this.pos[0] + margin[0] * this.width, this.pos[1] + (margin[1] + divide) * this.height, (1 - 2 * margin[0]) * this.width, (1 - divide - 2 * margin[1]) * this.height);
-			ctx.closePath();
-			ctx.fill();
-			ctx.stroke();
-
-			ctx.font = "30px Arial";
-			ctx.fillStyle = "black";
-			ctx.fillText("Water Supply", this.pos[0] + margin[0] * this.width + 10, this.pos[1] + (margin[1] + divide) * this.height + 25);
-
-			// Small button at bottom
-			const buttonGapX = 0.10;
-			ctx.fillStyle = "white";
-			ctx.lineWidth = lineWidth;
-			ctx.beginPath();
-			ctx.rect(this.pos[0] + buttonGapX * this.width, this.pos[1] + (margin[1] + divide) * this.height, (margin[0] - 2 * buttonGapX) * this.width, (1 - divide - 2 * margin[1]) * this.height);
-			ctx.closePath();
-			ctx.fill();
+			ctx.moveTo(this.pos[0], this.pos[1]);
+			ctx.lineTo(this.pos[0], this.pos[1] + this.height);
+			ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height);
+			ctx.lineTo(this.pos[0] + this.width, this.pos[1]);
 			ctx.stroke();
 		};
 	};
@@ -242,14 +239,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById("output2").innerHTML = "Mass of wet soil = ___ g";
 
 		objs = {
-			"permeameter": new permeameter(270, 240, 90, 160),
-			"water": new water(330, 240, 510, 30),
+			"permeameter": new permeameter(270, 240, 90, 110),
+			"filters": '',
+			"soil": new soil(150, 140, 92, 197),
+			"water": new water(65, 180, 70, 60),
 			"container": new container(120, 150, 8, 600, 240),
-			"soil": new soil(90, 150, 8, 600, 270),
 		};
 		keys = [];
 
-		enabled = [["permeameter"], ["permeameter", "container"], ["permeameter", "container"], ["permeameter", "container", "soil"], ["permeameter", "container", "soil"], ["container", "soil", "water"], ["container", "soil", "water"], ["container", "soil", "water"], ["permeameter", "container", "soil"], []];
+		enabled = [["permeameter"], ["permeameter", "soil"], ["permeameter", "soil", "filters"], ["permeameter", "soil", "water"], ["permeameter", "container", "soil"], ["container", "soil", "water"], ["container", "soil", "water"], ["container", "soil", "water"], ["permeameter", "container", "soil"], []];
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
@@ -259,7 +257,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	{ 
 		window.clearTimeout(tmHandle); 
 
-		document.getElementById("inputForm").style.display = 'none';
 		document.getElementById("apparatus").style.display = 'block';
 		document.getElementById("observations").style.width = '';
 
@@ -400,10 +397,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	objNames.forEach(function(elem, ind) {
 		const obj = document.getElementById(elem);
 		obj.addEventListener('click', function(event) {
-			if(elem === "soil")
+			if(elem === "filters")
 			{
-				enabled[step].pop();
-				document.getElementById("inputForm").style.display = 'block';
+				objs['permeameter'].filter = true;
+				step += 1;
 				return;
 			}
 
