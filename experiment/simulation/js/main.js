@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	};
 
-	class permeameter{
+	class permeameter {
 		constructor(height, width, x, y) {
 			this.height = height;
 			this.width = width;
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.globalAlpha = 0.3;
 			ctx.beginPath();
 
-			if(this.waterHeight > 0)
+			if(this.waterHeight >= filPipeLen)
 			{
 				ctx.rect(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + filPipeLen, pipeWidth, this.waterHeight - filPipeLen);
 				if(this.waterHeight >= this.height - mouldHeight)
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	};
 
-	class water {
+	class reservoir {
 		constructor(height, width, x, y) {
 			this.height = height;
 			this.width = width;
@@ -329,6 +329,31 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	};
 
+	class supply {
+		constructor(height, width, x, y) {
+			this.height = height;
+			this.width = width;
+			this.pos = [x, y];
+			this.waterHeight = 0;
+			this.reservoir = new reservoir(height, width, x, y);
+			this.tap = new tap(50, 120, 0, 0);
+		};
+
+		draw(ctx) {
+			this.reservoir.draw(ctx);
+			this.tap.draw(ctx);
+			const waterWidth = 8;
+
+			ctx.fillStyle = "#1ca3ec";
+			ctx.globalAlpha = 0.3;
+			ctx.beginPath();
+			ctx.rect(this.tap.width - waterWidth / 2 - 7.5, this.tap.height - 7.5, waterWidth, this.waterHeight);
+			ctx.closePath();
+			ctx.fill();
+			ctx.globalAlpha = 1;
+		};
+	};
+
 	function init()
 	{
 		document.getElementById("output1").innerHTML = "Mass of container = ___ g";
@@ -338,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			"permeameter": new permeameter(240, 240, 90, 100),
 			"filters": '',
 			"soil": new soil(135, 140, 92, 175),
-			"water": new water(45, 180, 70, 70),
+			"water": new supply(45, 180, 70, 70),
 			"container": new container(50, 75, 250, 350),
 		};
 		keys = [];
@@ -553,7 +578,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
-		new tap(50, 120, 0, 0).draw(ctx);
 		if(ctr === enabled[step].length)
 		{
 			document.getElementById("main").style.pointerEvents = 'auto';
@@ -564,7 +588,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			let temp = step;
 			if(step === 5)
 			{
+				flow(objs['water'], translate[1], 50);
 				flow(objs['permeameter'], translate[1], objs['permeameter'].height);
+
 				if(objs['permeameter'].pos[1] + objs['permeameter'].waterHeight >= objs['soil'].pos[1])
 				{
 					flow(objs['soil'], translate[1], objs['soil'].height);
