@@ -80,24 +80,23 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	};
 
-	class permeameter {
+	class mould {
 		constructor(height, width, x, y) {
 			this.height = height;
 			this.width = width;
 			this.pos = [x, y];
 			this.filter = false;
+			this.waterStart = y + 0.4 * height;
 			this.waterHeight = 0;
-			this.upPipePercent = [0, 0];
-			this.downPipePercent = [0, 0];
 			this.outPercent = [0, 0];
 		};
 
 		draw(ctx) {
-			const mouldWidth = 0.6 * this.width, mouldHeight = 0.8 * this.height, filterHeight = 0.15 * mouldHeight, filPipeLen = 0.3 * (this.height - mouldHeight), pipeWidth = 0.05 * this.height, gap = 0.05 * this.height, pipesMargin = 0.2 * (this.width - mouldWidth);
+			const mouldWidth = 0.8 * this.width, mouldHeight = 0.6 * this.height, filterHeight = 0.15 * mouldHeight, pipeWidth = 0.05 * this.height; 
 			ctx.lineWidth = 4;
 
 			// Main mould
-			ctx.fillStyle = "white";
+			ctx.fillStyle = "#A9A9A9";
 			ctx.beginPath();
 			ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight + filterHeight, mouldWidth, mouldHeight - 2 * filterHeight);
 			ctx.closePath();
@@ -117,116 +116,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				ctx.beginPath();
 
-				ctx.moveTo(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + filPipeLen);
+				ctx.moveTo(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1]);
 				ctx.lineTo(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + this.height - mouldHeight)
-				ctx.moveTo(this.pos[0] + mouldWidth / 2 + pipeWidth / 2, this.pos[1] + filPipeLen);
+				ctx.moveTo(this.pos[0] + mouldWidth / 2 + pipeWidth / 2, this.pos[1]);
 				ctx.lineTo(this.pos[0] + mouldWidth / 2 + pipeWidth / 2, this.pos[1] + this.height - mouldHeight)
 
 				ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height);
-				ctx.lineTo(this.pos[0] + mouldWidth + 840 * filPipeLen / 400, this.pos[1] + this.height)
+				ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height)
 				ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth);
-				ctx.lineTo(this.pos[0] + mouldWidth + 840 * filPipeLen / 400, this.pos[1] + this.height - pipeWidth)
+				ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height - pipeWidth)
 				ctx.stroke();
 			}
 	
-			ctx.fillStyle = "white";
-			ctx.beginPath();
-
-			ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - filterHeight - gap);
-			ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height - filterHeight - gap);
-			ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height - filterHeight - (this.height - mouldHeight + filterHeight + pipeWidth + gap)); 
-
-			ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - filterHeight - gap - pipeWidth);
-			ctx.lineTo(this.pos[0] + this.width - pipeWidth, this.pos[1] + this.height - filterHeight - gap - pipeWidth);
-			ctx.lineTo(this.pos[0] + this.width - pipeWidth, this.pos[1] + this.height - filterHeight - (this.height - mouldHeight + filterHeight + pipeWidth + gap));
-
-			ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - mouldHeight + filterHeight + pipeWidth + gap);
-			ctx.lineTo(this.pos[0] + this.width - pipeWidth - pipesMargin, this.pos[1] + this.height - mouldHeight + filterHeight + pipeWidth + gap);
-			ctx.lineTo(this.pos[0] + this.width - pipeWidth - pipesMargin, this.pos[1]);
-
-			ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - mouldHeight + filterHeight + gap);
-			ctx.lineTo(this.pos[0] + this.width - 2 * pipeWidth - pipesMargin, this.pos[1] + this.height - mouldHeight + filterHeight + gap);
-			ctx.lineTo(this.pos[0] + this.width - 2 * pipeWidth - pipesMargin, this.pos[1]);
-			ctx.stroke();
-
 			ctx.fillStyle = "#1ca3ec";
 			ctx.globalAlpha = 0.3;
 			ctx.beginPath();
 
-			if(this.waterHeight >= filPipeLen)
+			if(this.waterHeight > 0)
 			{
-				ctx.rect(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + filPipeLen, pipeWidth, this.waterHeight - filPipeLen);
-				if(this.waterHeight >= this.height - mouldHeight)
+				ctx.rect(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.waterStart, pipeWidth, this.waterHeight);
+				if(this.waterStart + this.waterHeight >= this.pos[1] + this.height - mouldHeight)
 				{
-					ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight, mouldWidth, this.waterHeight - (this.height - mouldHeight));
+					ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight, mouldWidth, this.waterStart + this.waterHeight - (this.pos[1] + this.height - mouldHeight));
 					ctx.fill();
 					ctx.closePath();
 					ctx.globalAlpha = 1;
 					ctx.beginPath();
 
-					if(this.waterHeight >= this.height - mouldHeight + filterHeight + gap)
+					if(this.waterStart + this.waterHeight >= this.pos[1] + this.height)
 					{
-						ctx.rect(this.pos[0] + mouldWidth, this.pos[1] + this.height - mouldHeight + filterHeight + gap, this.upPipePercent[0] * (this.width - mouldWidth - pipeWidth - pipesMargin), pipeWidth);
-						ctx.rect(this.pos[0] + this.width - 2 * pipeWidth - pipesMargin, this.pos[1] + this.height - mouldHeight + filterHeight + gap, pipeWidth, -this.upPipePercent[1] * (this.height - mouldHeight + filterHeight + gap));
-
-						if(this.upPipePercent[0] >= 1)
+						const radius = 8, outHeight = 40;
+						ctx.rect(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth, this.outPercent[0] * (this.width - mouldWidth), pipeWidth);
+						if(this.outPercent[0] >= 1)
 						{
-							this.upPipePercent[0] = 1;
-							if(this.upPipePercent[1] < 0.7)
+							ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth);
+							ctx.arcTo(this.pos[0] + this.width + pipeWidth, this.pos[1] + this.height - pipeWidth, this.pos[0] + this.width + pipeWidth, this.pos[1] + this.height + this.outPercent[1] * outHeight, radius);
+							ctx.lineTo(this.pos[0] + this.width + pipeWidth, this.pos[1] + this.height + this.outPercent[1] * outHeight);
+							ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height + this.outPercent[1] * outHeight);
+							ctx.arcTo(this.pos[0] + this.width, this.pos[1] + this.height, this.pos[0] + mouldWidth, this.pos[1] + this.height, radius);
+							ctx.lineTo(this.pos[0] + mouldWidth, this.pos[1] + this.height);
+							ctx.lineTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth);
+
+							if(this.outPercent[1] < 1)
 							{
-								this.upPipePercent[1] += 0.03;
+								this.outPercent[1] += 0.05;
 							}
 						}
 
 						else
 						{
-							this.upPipePercent[0] += 0.03;
-						}
-
-						if(this.waterHeight >= this.height - filterHeight - gap - pipeWidth)
-						{
-							ctx.rect(this.pos[0] + mouldWidth, this.pos[1] + this.height - filterHeight - gap - pipeWidth, this.downPipePercent[0] * (this.width - mouldWidth), pipeWidth);
-							ctx.rect(this.pos[0] + this.width - pipeWidth, this.pos[1] + this.height - filterHeight - gap - pipeWidth, pipeWidth, -this.downPipePercent[1] * (this.height - mouldHeight + filterHeight + pipeWidth));
-
-							if(this.downPipePercent[0] >= 1)
-							{
-								this.downPipePercent[0] = 1;
-								if(this.downPipePercent[1] < 0.4)
-								{
-									this.downPipePercent[1] += 0.03;
-								}
-							}
-
-							else
-							{
-								this.downPipePercent[0] += 0.03;
-							}
-
-							if(this.waterHeight >= this.height)
-							{
-								const radius = 8, outHeight = 55;
-								ctx.rect(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth, this.outPercent[0] * (840 * filPipeLen / 400), pipeWidth);
-								if(this.outPercent[0] >= 1)
-								{
-									ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth);
-									ctx.arcTo(this.pos[0] + mouldWidth + (840 * filPipeLen / 400) + pipeWidth, this.pos[1] + this.height - pipeWidth, this.pos[0] + mouldWidth + (840 * filPipeLen / 400) + pipeWidth, this.pos[1] + this.height + this.outPercent[1] * outHeight, radius);
-									ctx.lineTo(this.pos[0] + mouldWidth + (840 * filPipeLen / 400) + pipeWidth, this.pos[1] + this.height + this.outPercent[1] * outHeight);
-									ctx.lineTo(this.pos[0] + mouldWidth + (840 * filPipeLen / 400), this.pos[1] + this.height + this.outPercent[1] * outHeight);
-									ctx.arcTo(this.pos[0] + mouldWidth + (840 * filPipeLen / 400), this.pos[1] + this.height, this.pos[0] + mouldWidth, this.pos[1] + this.height, radius);
-									ctx.lineTo(this.pos[0] + mouldWidth, this.pos[1] + this.height);
-									ctx.lineTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth);
-
-									if(this.outPercent[1] < 1)
-									{
-										this.outPercent[1] += 0.05;
-									}
-								}
-
-								else
-								{
-									this.outPercent[0] += 0.05;
-								}
-							}
+							this.outPercent[0] += 0.05;
 						}
 					}
 				}
@@ -236,9 +175,20 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.fill();
 			ctx.globalAlpha = 1;
 		};
+
+		fill(change) {
+			if(this.waterHeight >= 0.85 * 0.4 * this.height)
+			{
+				return 1;
+			}
+
+			this.waterStart -= change;
+			this.waterHeight += change;
+			return 0;
+		};
 	};
 
-	class reservoir {
+	class tank {
 		constructor(height, width, x, y) {
 			this.height = height;
 			this.width = width;
@@ -263,61 +213,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	};
 
-	class tap {
-		constructor(height, width, x, y) {
-			this.height = height;
-			this.width = width;
-			this.pos = [x, y];
-			this.img = new Image();
-			this.img.src = './images/tap.png';
-			this.img.onload = () => { ctx.drawImage(this.img, this.pos[0], this.pos[1], this.width, this.height); };
-		};
-
-		draw(ctx) {
-			ctx.drawImage(this.img, this.pos[0], this.pos[1], this.width, this.height);
-		};
-	};
-
-	class supply {
-		constructor(height, width, x, y) {
-			this.height = height;
-			this.width = width;
-			this.pos = [x, y];
-			this.waterHeight = 0;
-			this.reservoir = new reservoir(height, width, x, y);
-			this.tap = new tap(50, 120, 0, 0);
-		};
-
-		draw(ctx) {
-			this.reservoir.draw(ctx);
-			this.tap.draw(ctx);
-			const waterWidth = 8;
-
-			ctx.fillStyle = "#1ca3ec";
-			ctx.globalAlpha = 0.3;
-			ctx.beginPath();
-			ctx.rect(this.tap.width - waterWidth / 2 - 7.5, this.tap.height - 7.5, waterWidth, this.waterHeight);
-			ctx.closePath();
-			ctx.fill();
-			ctx.globalAlpha = 1;
-		};
-	};
-
 	function init()
 	{
 		document.getElementById("output1").innerHTML = "Mass of container = ___ g";
 		document.getElementById("output2").innerHTML = "Mass of wet soil = ___ g";
 
 		objs = {
-			"permeameter": new permeameter(240, 240, 90, 100),
+			"mould": new mould(240, 180, 90, 100),
 			"filters": '',
-			"soil": new soil(135, 140, 92, 175),
-			"water": new supply(45, 180, 70, 70),
+			"water": '',
+			"soil": new soil(95, 140, 92, 220),
+			"tank": new tank(45, 180, 70, 70),
 			"container": new container(50, 75, 250, 350),
 		};
 		keys = [];
 
-		enabled = [["permeameter"], ["permeameter", "soil"], ["permeameter", "soil", "filters"], ["permeameter", "soil", "water"], ["permeameter", "soil", "water", "container"], ["permeameter", "soil", "water"], ["container", "soil", "water"], ["container", "soil", "water"], []];
+		enabled = [["mould"], ["mould", "soil"], ["mould", "soil", "filters"], ["mould", "soil", "water"], ["mould", "soil", "container"], ["mould", "soil", "container"], ["container", "soil", "water"], ["container", "soil", "water"], []];
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
@@ -373,10 +284,35 @@ document.addEventListener('DOMContentLoaded', function() {
 		keys.forEach(function(val, ind) {
 			if(canvasPos[0] >= objs[val].pos[0] - errMargin && canvasPos[0] <= objs[val].pos[0] + objs[val].width + errMargin && canvasPos[1] >= objs[val].pos[1] - errMargin && canvasPos[1] <= objs[val].pos[1] + objs[val].height + errMargin)
 			{
-				if(step === 5 && val === "water")
+				if(step === 5 && val === "mould")
 				{
 					hover = true;
 					translate[1] = 0.5;
+				}
+
+				else if(step === 6 && val === "container")
+				{
+					hover = true;
+					translate[0] = 5;
+					translate[1] = 5;
+					lim[0] = 560;
+					lim[1] = 150;
+				}
+
+				else if(step === 7 && val === "water" && canvasPos[0] >= objs[val].pos[0] - errMargin && canvasPos[0] <= objs[val].pos[0] + objs[val].width + errMargin && canvasPos[1] >= objs[val].pos[1] + objs[val].height * 0.8 - errMargin && canvasPos[1] <= objs[val].pos[1] + objs[val].height + errMargin)
+				{
+					hover = true;
+					translate[1] = 1;
+					lim[1] = 210;
+				}
+
+				else if(step === 8 && val === "container")
+				{
+					hover = true;
+					translate[0] = -5;
+					translate[1] = -5;
+					lim[0] = 135;
+					lim[1] = 110;
 				}
 			}
 		});
@@ -405,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 150;
 	const msgs = [
-		"Click on 'Constant Head Permeameter' in the apparatus menu to add a permeameter to the workspace.", 
+		"Click on 'Constant Head Permeameter' in the apparatus menu to add a mould to the workspace.", 
 		"Click on 'Container' in the apparatus menu to add a container to the workspace.",
 		"Click on the container to move it to the weighing machine and weigh it.",
 		"Click on 'Soil Sample' in the apparatus menu, set appropriate input values (Soil Mass) and click 'Add' to add a soil sample to the workspace.",
@@ -432,8 +368,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		obj.addEventListener('click', function(event) {
 			if(elem === "filters")
 			{
-				objs['permeameter'].filter = true;
+				objs['mould'].filter = true;
 				step += 1;
+				return;
+			}
+
+			else if(elem === "water")
+			{
+				translate[1] = 0.5;
 				return;
 			}
 
@@ -503,27 +445,30 @@ document.addEventListener('DOMContentLoaded', function() {
 		if(translate[0] !== 0 || translate[1] !== 0)
 		{
 			let temp = step;
+			if(step === 3)
+			{
+				temp += objs['mould'].fill(translate[1]);
+			}
+
 			if(step === 5)
 			{
-				flow(objs['water'], translate[1], 50);
-				flow(objs['permeameter'], translate[1], objs['permeameter'].height);
+				flow(objs['mould'], translate[1], objs['mould'].height);
 
-				if(objs['permeameter'].pos[1] + objs['permeameter'].waterHeight >= objs['soil'].pos[1])
+				if(objs['mould'].pos[1] + objs['mould'].waterHeight >= objs['soil'].pos[1])
 				{
 					flow(objs['soil'], translate[1], objs['soil'].height);
 				}
 
-				if(objs['permeameter'].outPercent[1] >= 1)
+				if(objs['mould'].outPercent[1] >= 1)
 				{
 					temp += flow(objs['container'], translate[1], objs['container'].height - 15);
 				}
-
-				if(temp != step)
-				{
-					translate[1] = 0;
-				}
 			}
 
+			if(temp != step)
+			{
+				translate[1] = 0;
+			}
 			step = temp;
 		}
 
