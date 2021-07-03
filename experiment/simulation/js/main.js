@@ -71,17 +71,35 @@ document.addEventListener('DOMContentLoaded', function() {
 		obj.pos[1] += translate[1];
 	};
 
+
+	function flow(obj, change, lim) {
+		if(obj.waterHeight >= lim)
+		{
+			return 1;
+		}
+
+		obj.waterHeight += change;
+		return 0;
+	};
+
 	class container {
 		constructor(height, width, x, y) {
 			this.height = height;
 			this.width = width;
 			this.pos = [x, y];
+			this.waterHeight = 0;
 			this.img = new Image();
 			this.img.src = './images/container.png';
 			this.img.onload = () => { ctx.drawImage(this.img, this.pos[0], this.pos[1], this.width, this.height); };
 		};
 
 		draw(ctx) {
+			ctx.fillStyle = "#1ca3ec";
+			ctx.beginPath();
+			ctx.rect(this.pos[0] + 5, this.pos[1] + this.height - 5, this.width - 10, -this.waterHeight);
+			ctx.closePath();
+			ctx.fill();
+
 			ctx.drawImage(this.img, this.pos[0], this.pos[1], this.width, this.height);
 		};
 	};
@@ -91,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.height = height;
 			this.width = width;
 			this.pos = [x, y];
+			this.waterHeight = 0;
 		};
 
 		draw(ctx) {
@@ -101,11 +120,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.rect(this.pos[0], this.pos[1], this.width, this.height);
 			ctx.closePath();
 			ctx.fill();
-			ctx.stroke();
-		};
 
-		heating(unit) {
-			this.height -= unit;
+			ctx.fillStyle = "#1ca3ec";
+			ctx.globalAlpha = 0.3;
+			ctx.beginPath();
+			ctx.rect(this.pos[0], this.pos[1], this.width, this.waterHeight);
+			ctx.closePath();
+			ctx.fill();
+			ctx.globalAlpha = 1;
 		};
 	};
 
@@ -115,9 +137,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.width = width;
 			this.pos = [x, y];
 			this.filter = false;
-			this.waterHeight = y;
+			this.waterHeight = 0;
 			this.upPipePercent = [0, 0];
 			this.downPipePercent = [0, 0];
+			this.outPercent = [0, 0];
 		};
 
 		draw(ctx) {
@@ -181,19 +204,18 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.globalAlpha = 0.3;
 			ctx.beginPath();
 
-			if(this.waterHeight > this.pos[1] + filPipeLen)
+			if(this.waterHeight > 0)
 			{
-				ctx.rect(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + filPipeLen, pipeWidth, this.waterHeight - (this.pos[1] + filPipeLen));
-
-				if(this.waterHeight > this.pos[1] + this.height - mouldHeight)
+				ctx.rect(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + filPipeLen, pipeWidth, this.waterHeight - filPipeLen);
+				if(this.waterHeight >= this.height - mouldHeight)
 				{
-					ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight, mouldWidth, this.waterHeight - (this.pos[1] + this.height - mouldHeight));
+					ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight, mouldWidth, this.waterHeight - (this.height - mouldHeight));
 					ctx.fill();
 					ctx.closePath();
 					ctx.globalAlpha = 1;
 					ctx.beginPath();
 
-					if(this.waterHeight > this.pos[1] + this.height - mouldHeight + filterHeight + pipeWidth)
+					if(this.waterHeight >= this.height - mouldHeight + filterHeight + gap)
 					{
 						ctx.rect(this.pos[0] + mouldWidth, this.pos[1] + this.height - mouldHeight + filterHeight + gap, this.upPipePercent[0] * (this.width - mouldWidth - pipeWidth - pipesMargin), pipeWidth);
 						ctx.rect(this.pos[0] + this.width - 2 * pipeWidth - pipesMargin, this.pos[1] + this.height - mouldHeight + filterHeight + gap, pipeWidth, -this.upPipePercent[1] * (this.height - mouldHeight + filterHeight + gap));
@@ -212,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
 							this.upPipePercent[0] += 0.03;
 						}
 
-						if(this.waterHeight > this.pos[1] + this.height - filterHeight - gap - pipeWidth)
+						if(this.waterHeight >= this.height - filterHeight - gap - pipeWidth)
 						{
 							ctx.rect(this.pos[0] + mouldWidth, this.pos[1] + this.height - filterHeight - gap - pipeWidth, this.downPipePercent[0] * (this.width - mouldWidth), pipeWidth);
 							ctx.rect(this.pos[0] + this.width - pipeWidth, this.pos[1] + this.height - filterHeight - gap - pipeWidth, pipeWidth, -this.downPipePercent[1] * (this.height - mouldHeight + filterHeight + pipeWidth));
@@ -230,6 +252,32 @@ document.addEventListener('DOMContentLoaded', function() {
 							{
 								this.downPipePercent[0] += 0.03;
 							}
+
+							if(this.waterHeight >= this.height)
+							{
+								const radius = 8, outHeight = 55;
+								ctx.rect(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth, this.outPercent[0] * (840 * filPipeLen / 400), pipeWidth);
+								if(this.outPercent[0] >= 1)
+								{
+									ctx.moveTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth);
+									ctx.arcTo(this.pos[0] + mouldWidth + (840 * filPipeLen / 400) + pipeWidth, this.pos[1] + this.height - pipeWidth, this.pos[0] + mouldWidth + (840 * filPipeLen / 400) + pipeWidth, this.pos[1] + this.height + this.outPercent[1] * outHeight, radius);
+									ctx.lineTo(this.pos[0]  + mouldWidth + (840 * filPipeLen / 400) + pipeWidth, this.pos[1] + this.height + this.outPercent[1] * outHeight);
+									ctx.lineTo(this.pos[0]  + mouldWidth + (840 * filPipeLen / 400), this.pos[1] + this.height + this.outPercent[1] * outHeight);
+									ctx.arcTo(this.pos[0] + mouldWidth + (840 * filPipeLen / 400), this.pos[1] + this.height, this.pos[0] + mouldWidth, this.pos[1] + this.height, radius);
+									ctx.lineTo(this.pos[0] + mouldWidth, this.pos[1] + this.height);
+									ctx.lineTo(this.pos[0] + mouldWidth, this.pos[1] + this.height - pipeWidth);
+
+									if(this.outPercent[1] < 1)
+									{
+										this.outPercent[1] += 0.05;
+									}
+								}
+
+								else
+								{
+									this.outPercent[0] += 0.05;
+								}
+							}
 						}
 					}
 				}
@@ -239,16 +287,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.fill();
 			ctx.globalAlpha = 1;
 		};
-
-		flow(change, lim) {
-			this.waterHeight += change;
-			if(this.waterHeight > lim)
-			{
-				return 1;
-			}
-
-			return 0;
-		};
 	};
 
 	class water {
@@ -256,19 +294,17 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.height = height;
 			this.width = width;
 			this.pos = [x, y];
-			this.waterHeight = 30;
+			this.waterHeight = 2 * height / 3;
 		};
 
 		draw(ctx) {
-			ctx.lineWidth = 0.001;
+			ctx.lineWidth = 4;
 			ctx.fillStyle = "#1ca3ec";
 			ctx.beginPath();
 			ctx.rect(this.pos[0], this.pos[1] + (this.height - this.waterHeight), this.width, this.waterHeight);
 			ctx.closePath();
 			ctx.fill();
-			ctx.stroke();
 
-			ctx.lineWidth = 4;
 			ctx.beginPath();
 			ctx.moveTo(this.pos[0], this.pos[1]);
 			ctx.lineTo(this.pos[0], this.pos[1] + this.height);
@@ -528,7 +564,18 @@ document.addEventListener('DOMContentLoaded', function() {
 			let temp = step;
 			if(step === 5)
 			{
-				temp += objs['permeameter'].flow(translate[1], lim[1]);
+				flow(objs['permeameter'], translate[1], objs['permeameter'].height);
+				if(objs['permeameter'].pos[1] + objs['permeameter'].waterHeight >= objs['soil'].pos[1])
+				{
+					flow(objs['soil'], translate[1], objs['soil'].height);
+				}
+
+				if(objs['permeameter'].outPercent[1] >= 1)
+				{
+					console.log("hi")
+					flow(objs['container'], translate[1], objs['container'].height - 15);
+				}
+
 				if(temp != step)
 				{
 					translate[1] = 0;
