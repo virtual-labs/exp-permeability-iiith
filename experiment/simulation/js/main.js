@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 		keys = [];
 
-		enabled = [["permeameter"], ["permeameter", "soil"], ["permeameter", "soil", "filters"], ["permeameter", "soil", "water"], ["permeameter", "soil", "water", "container"], ["permeameter", "soil", "water"], ["container", "soil", "water"], ["container", "soil", "water"], []];
+		enabled = [["permeameter"], ["permeameter", "soil"], ["permeameter", "soil", "filters"], ["permeameter", "soil", "water"], ["permeameter", "soil", "water", "container"], ["permeameter", "soil", "water", "container"], []];
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
@@ -410,14 +410,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 150;
 	const msgs = [
 		"Click on 'Constant Head Permeameter' in the apparatus menu to add a permeameter to the workspace.", 
+		"Click on 'Soil Sample' in the apparatus menu to add a soil sample to the permeameter mould.",
+		"Click on 'Filters' in the apparatus menu to add filters with outlet pipes to the permeameter.",
+		"Click on 'Water Supply' in the apparatus menu to add a tap and a reservoir to the top filter pipe.",
 		"Click on 'Container' in the apparatus menu to add a container to the workspace.",
-		"Click on the container to move it to the weighing machine and weigh it.",
-		"Click on 'Soil Sample' in the apparatus menu, set appropriate input values (Soil Mass) and click 'Add' to add a soil sample to the workspace.",
-		"Click on the soil sample to add it to the container and weigh it.",
-		"Click on 'Water Supply' in the apparatus menu to add an water to the workspace.", 
-		"Click on the container to move it to the water.",
-		"Click on the water red portion to start the water and heat the soil.",
-		"Click on the container with dry soil to weigh it.",
+		"Click on the reservoir to allow the water to flow through the permeameter and to simultaneously start the tap.",
 		"Click the restart button to perform the experiment again.",
 	];
 
@@ -522,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					temp += flow(objs['container'], translate[1], objs['container'].height - 15);
 				}
 
-				if(temp != step)
+				if(temp !== step)
 				{
 					translate[1] = 0;
 				}
