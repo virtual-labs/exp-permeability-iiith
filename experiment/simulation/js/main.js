@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.lineWidth = 4;
 
 			// Main mould
-			ctx.fillStyle = "white";
+			ctx.fillStyle = "#A9A9A9";
 			ctx.beginPath();
 			ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight + filterHeight, mouldWidth, mouldHeight - 2 * filterHeight);
 			ctx.closePath();
@@ -150,14 +150,19 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.stroke();
 
 			ctx.fillStyle = "#1ca3ec";
-			ctx.globalAlpha = 0.3;
 			ctx.beginPath();
 
 			if(this.waterHeight >= filPipeLen)
 			{
-				ctx.rect(this.pos[0] + mouldWidth / 2 - pipeWidth / 2, this.pos[1] + filPipeLen, pipeWidth, this.waterHeight - filPipeLen);
 				if(this.waterHeight >= this.height - mouldHeight)
 				{
+					ctx.rect(this.pos[0] + mouldWidth / 2 - pipeWidth / 2 + 2, this.pos[1] + filPipeLen, pipeWidth - 4, this.height - mouldHeight - filPipeLen);
+
+					ctx.closePath();
+					ctx.fill();
+					ctx.globalAlpha = 0.3;
+					ctx.beginPath();
+
 					ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight, mouldWidth, this.waterHeight - (this.height - mouldHeight));
 					ctx.fill();
 					ctx.closePath();
@@ -229,6 +234,11 @@ document.addEventListener('DOMContentLoaded', function() {
 							}
 						}
 					}
+				}
+
+				else
+				{
+					ctx.rect(this.pos[0] + mouldWidth / 2 - pipeWidth / 2 + 2, this.pos[1] + filPipeLen, pipeWidth - 4, this.waterHeight - filPipeLen);
 				}
 			}
 
@@ -389,12 +399,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			lim[0] = 0;
 			lim[1] = 0;
 		}
-	};
-
-	function curvedArea(ctx, e, gradX, gradY)
-	{
-		ctx.bezierCurveTo(e[0], e[1] += gradY, e[0] += gradX, e[1] += gradY, e[0] += gradX, e[1]);
-		ctx.bezierCurveTo(e[0] += gradX, e[1], e[0] += gradX, e[1] -= gradY, e[0], e[1] -= gradY);
 	};
 
 	const canvas = document.getElementById("main");
