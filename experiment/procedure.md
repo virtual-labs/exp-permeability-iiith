@@ -4,7 +4,7 @@
 3. Add filters from the apparatus menu to the top and bottom of the permeameter. Each of the filters has an attached pipe for inflow/outflow of liquid. 
 4. Add a water supply from the apparatus menu to the top filter's pipe. This consists of a filled reservoir and a tap. The tap is to maintain a constant head at the input/reservoir.
 5. Add a container from the apparatus menu to collect the outgoing liquid (water). The container has markings to help determine the quantity of water collected.
-6. Allow water to flow through the permeameter (and hence the soil) by clicking on the reservoir. Observe the change in th water head s at the two manometers.
+6. Allow water to flow through the permeameter (and hence the soil) by clicking on the reservoir. Observe the change in the water head's at the two manometers.
 7. Click the restart button to perform the experiment again.
 
 
