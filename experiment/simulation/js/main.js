@@ -7,17 +7,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	restartButton.addEventListener('click', function() { restart(); });
 
+	function finish(step)
+	{
+		if(!flag && step === enabled.length - 1)
+		{
+			flag = true;
+			logic(tableData);
+			generateTableHead(table, Object.keys(tableData[0]));
+			generateTable(table, tableData);
+
+			document.getElementById("apparatus").style.display = 'none';
+			document.getElementById("observations").style.width = '40%';
+			if(small)
+			{
+				document.getElementById("observations").style.width = '85%';
+			}
+		}
+	};
+
 	function randomNumber(min, max) {
-		return (Math.random() * (max - min + 1) + min).toFixed(2);
+		return Number((Math.random() * (max - min + 1) + min).toFixed(2));
+	};
+
+	function randomInt(min, max) {
+		return Number(Math.floor(randomNumber(min, max)));
 	};
 
 	function logic(tableData)
 	{
-		const soilData = { 'Silt': randomNumber(22.5, 27.5), 'Sand': randomNumber(12, 16), 'Clay': randomNumber(30, 50) };
+		const heads = [30, 50, 60, 70], times = [randomInt(80, 85), randomInt(50, 55), randomInt(45, 50), randomInt(35, 40)];
 		tableData.forEach(function(row, index) {
-			const ans = (Number)(soilData[row['Soil Type']]);
-			row['Water Content(%)'] = ans;
-			row['Dry Soil Mass(g)'] = ((100 * wetSoilMass) / (ans + 100)).toFixed(2);
+			row['Trial No.'] = index;
+			row['Constant Head, h(cm)'] = heads[index];
+			row['Elapsed Time, t(sec)'] = times[index];
+			row['Permeability, K(cm/sec)'] = (outflow * length / (area * times[index] * heads[index])).toFixed(3);
 		});
 	};
 
@@ -315,8 +338,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function init()
 	{
-		document.getElementById("output1").innerHTML = "Mass of container = ___ g";
-		document.getElementById("output2").innerHTML = "Mass of wet soil = ___ g";
+		document.getElementById("output1").innerHTML = "Length of Soil Sample, L = ____ cm";
+		document.getElementById("output2").innerHTML = "Diameter of Soil Sample, D = ____ cm";
+		document.getElementById("output3").innerHTML = "Cross-Sectional Area of Soil Sample, A = ____ cm<sup>2<sup>";
+		document.getElementById("output4").innerHTML = "Outflow Volume, Q = ____ cm<sup>3<sup>";
 
 		objs = {
 			"permeameter": new permeameter(240, 240, 90, 100),
@@ -331,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
+		flag = false;
 	};
 
 	function restart() 
@@ -418,13 +444,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		"Click the restart button to perform the experiment again.",
 	];
 
-	let step, translate, lim, objs, keys, enabled, small;
+	let length, diameter, area;
+	const outflow = 750;
+	let step, translate, lim, objs, keys, enabled, small, flag;
 	init();
 
 	const tableData = [
-		{ "Soil Type": "Silt", "Dry Soil Mass(g)": "", "Water Content(%)": "" },
-		{ "Soil Type": "Sand", "Dry Soil Mass(g)": "", "Water Content(%)": "" },
-		{ "Soil Type": "Clay", "Dry Soil Mass(g)": "", "Water Content(%)": "" },
+		{ "Trial No.": "", "Constant Head, h(cm)": "", "Elapsed Time, t(sec)": "", "Permeability, K(cm/sec)": "" },
+		{ "Trial No.": "", "Constant Head, h(cm)": "", "Elapsed Time, t(sec)": "", "Permeability, K(cm/sec)": "" },
+		{ "Trial No.": "", "Constant Head, h(cm)": "", "Elapsed Time, t(sec)": "", "Permeability, K(cm/sec)": "" },
+		{ "Trial No.": "", "Constant Head, h(cm)": "", "Elapsed Time, t(sec)": "", "Permeability, K(cm/sec)": "" },
 	];
 
 	const objNames = Object.keys(objs);
@@ -436,6 +465,17 @@ document.addEventListener('DOMContentLoaded', function() {
 				objs['permeameter'].filter = true;
 				step += 1;
 				return;
+			}
+
+			if(elem === "soil")
+			{
+				length = randomNumber(15, 20);
+				diameter = randomNumber(5, 7);
+				area = (Math.PI * diameter * diameter / (4)).toFixed(2);
+				document.getElementById("output1").innerHTML = "Length of Soil Sample, L = " + String(length) + " cm";
+				document.getElementById("output2").innerHTML = "Diameter of Soil Sample, D = " + String(diameter) + " cm";
+				document.getElementById("output3").innerHTML = "Cross-Sectional Area of Soil Sample, A = " + String(area) + " cm<sup>2<sup>";
+				document.getElementById("output4").innerHTML = "Outflow Volume, Q = " + String(outflow) + " cm<sup>3</sup>";
 			}
 
 			keys.push(elem);
@@ -529,6 +569,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 		document.getElementById("procedure-message").innerHTML = msgs[step];
+		finish(step);
 		tmHandle = window.setTimeout(draw, 1000 / fps);
 	};
 
