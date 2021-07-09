@@ -11,7 +11,7 @@
 			},
 			"explanations": {
 				"a": "It is possible to maintain a constant head and measure the required quantities for coarse grained soils.",
-				"b": "It is difficult to maintain a constant head and measure the required quantities for cohesive soils. The variable/falling head test is more suitable.",
+				"b": "It is difficult to maintain a constant head and measure the required quantities for fine grained soils. The variable/falling head test is more suitable.",
 				"c": "It is difficult to maintain a constant head and measure the required quantities for cohesive soils. The variable/falling head test is more suitable.",
 				"d": "While it can be used for these kinds of soils, it is more suitable for another of the above options."
 			},
