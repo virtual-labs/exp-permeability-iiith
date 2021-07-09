@@ -9,7 +9,7 @@ Permeability is defined as the property of porous material which permits the pas
 	A = Cross-sectional area of soil sample inside the mould (cm<sup>2</sup>) <br />
 	t = (t1 – t2) = Time interval for the head to fall from h1 to h2 <br />
 	h1 = Initial head of water at time t1 in the pipe, measured above the outlet <br />
-	h2= Final head of water at time t2 in the pipe, measured above the outlet <br />
+	h2 = Final head of water at time t2 in the pipe, measured above the outlet <br />
 	2. Constant head test <br />
 	The Constant head test is suitable for coarse grained soils like sands and sandy silts. <br />
 	k = Q / (t * i * A) = Q * L / (t * h * A) <br />
@@ -30,4 +30,5 @@ Permeability is defined as the property of porous material which permits the pas
 	2. Horizontal capillarity test
 	3. Consolidation test data
 	
+
 The derivation of the coefficient of permeability is based on the assumption of the validity of Darcy’s law to the flow of water in soil. The law is based on the fact that the flow between two points is directly proportional to the pressure differences between the points, the distance, and the connectivity of flow within rocks between the points. The term coefficient of permeability implies the velocity of flow of water through the soil under unit hydraulic gradient, and consequently has the same units as that of velocity.

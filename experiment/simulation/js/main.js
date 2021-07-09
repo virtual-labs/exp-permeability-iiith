@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			generateTableHead(table, Object.keys(tableData[0]));
 			generateTable(table, tableData);
 
+			document.getElementById("output4").innerHTML = "Outflow Volume, Q = " + String(outflow) + " cm<sup>3</sup>";
 			document.getElementById("apparatus").style.display = 'none';
 			document.getElementById("observations").style.width = '40%';
 			if(small)
@@ -475,7 +476,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.getElementById("output1").innerHTML = "Length of Soil Sample, L = " + String(length) + " cm";
 				document.getElementById("output2").innerHTML = "Diameter of Soil Sample, D = " + String(diameter) + " cm";
 				document.getElementById("output3").innerHTML = "Cross-Sectional Area of Soil Sample, A = " + String(area) + " cm<sup>2<sup>";
-				document.getElementById("output4").innerHTML = "Outflow Volume, Q = " + String(outflow) + " cm<sup>3</sup>";
 			}
 
 			keys.push(elem);
