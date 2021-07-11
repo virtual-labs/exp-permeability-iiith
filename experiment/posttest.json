@@ -2,24 +2,7 @@
 	"version": 2.0,
 	"questions": [
 		{
-			"question": "1. If size of the particle increases 2 times, then K ____.",
-			"answers": {
-				"a": "Increases to 4 times",
-				"b": "Increases to 2 times",
-				"c": "Decreases",
-				"d": "Remains the same"
-			},
-			"explanations": {
-				"a": "",
-				"b": "",
-				"c": "",
-				"d": ""
-			},
-			"difficulty": "beginner",
-			"correctAnswer": ""
-		},
-		{
-			"question": "2. For clay soils, soils with greater void ratios have ____ permeability.",
+			"question": "1. For clay soils, soils with greater void ratios have ____ permeability.",
 			"answers": {
 				"a": "Lesser",
 				"b": "More",
@@ -36,24 +19,24 @@
 			"correctAnswer": "a"
 		},
 		{
-			"question": "3. Due to change in temperature, the w and μ of the liquid reduced by 10% and 40% respectively. What is the change in the permeability of the soil?",
+			"question": "2. Due to change in temperature, the viscosity (μ) of the liquid reduced by and 40%. What is the change in the permeability of the soil?",
 			"answers": {
-				"a": "Reduces by 10%",
-				"b": "Reduces to 90%",
-				"c": "Reduces by 40%",
+				"a": "Reduces to 60%",
+				"b": "Reduces by 40%",
+				"c": "Reduces by 10%",
 				"d": "Both a & b"
 			},
 			"explanations": {
-				"a": "",
-				"b": "",
-				"c": "",
-				"d": ""
+				"a": "Coefficient of permeability is inversely proportional to the viscosity of the fluid. While this is the right answer, this is not the complete answer.",
+				"b": "Coefficient of permeability is inversely proportional to the viscosity of the fluid. While this is the right answer, this is not the complete answer.",
+				"c": "Coefficient of permeability is inversely proportional to the viscosity of the fluid. The relation is direct without any constants or scaling factors.",
+				"d": "Coefficient of permeability is inversely proportional to the viscosity of the fluid."
 			},
 			"difficulty": "beginner",
 			"correctAnswer": "d"
 		},
 		{
-			"question": "4. Permeable soil has a K (cm / sec) value of ____.",
+			"question": "3. Permeable soil has a K (cm / sec) value of ____.",
 			"answers": {
 				"a": ">0.1",
 				"b": "<0.1",
@@ -70,7 +53,7 @@
 			"correctAnswer": "a"
 		},
 		{
-			"question": "5. Coefficient of permeability is also called as which of the following?",
+			"question": "4. Coefficient of permeability is also called as which of the following?",
 			"answers": {
 				"a": "Energy of water",
 				"b": "Conductivity",
@@ -78,16 +61,16 @@
 				"d": "Potential of water"
 			},
 			"explanations": {
-				"a": "",
-				"b": "",
-				"c": "",
-				"d": ""
+				"a": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil and has nothing to do with the energy of the water.",
+				"b": "Conductivity is the measure of the ease at which an electric charge or heat can pass through a material whereas coefficient of permeability of soil is a measure of the ease with which water flows through the soil. Hence, this is incorrect.",
+				"c": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil. Hydraulic conductivity is defined as the ability of a porous medium to transmit water under saturated or nearly saturated conditions. Hence, coefficient of permeability of a soil can also be called as hydraulic conductivity of soil.",
+				"d": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil and has nothing to do with the potential of the water."
 			},
 			"difficulty": "intermediate",
 			"correctAnswer": "c"
 		},
 		{
-			"question": "6. A constant head permeability test on a medium soil sample having a cross sectional area (A) of 7585 mm<sup>2</sup> yielded the following data: Distance between stand-pipes (L) = 100 mm, Constant head difference (h) = 70.4 mm, Quantity of water collected (Q) = 500 * 10<sup>3</sup> mm<sup>3</sup>, Time of collection (t) = 132 s. Determine the coefficient of permeability of the sand specimen.",
+			"question": "5. A constant head permeability test on a medium soil sample having a cross sectional area (A) of 7585 mm<sup>2</sup> yielded the following data: Distance between stand-pipes (L) = 100 mm, Constant head difference (h) = 70.4 mm, Quantity of water collected (Q) = 500 * 10<sup>3</sup> mm<sup>3</sup>, Time of collection (t) = 132 s. Determine the coefficient of permeability of the sand specimen.",
 			"answers": {
 				"a": "0.6",
 				"b": "0.7",
@@ -104,7 +87,7 @@
 			"correctAnswer": "b"
 		},
 		{
-			"question": "7. In a falling head permeability test, a soil sample of 7585 mm<sup>2</sup> cross-section (A) and 210.2 mm length (L) was subjected to a flow of water from a stand-pipe having cross-sectional area (a) of 730 mm<sup>2</sup>. The stand-pipe level changed from 1650 mm (h<sub>1</sub>) to 550 mm (h<sub>2</sub>) above the reservoir datum during a time interval (t) of 182 sec. Determine the coefficient of permeability of the soil.",
+			"question": "6. In a falling head permeability test, a soil sample of 7585 mm<sup>2</sup> cross-section (A) and 210.2 mm length (L) was subjected to a flow of water from a stand-pipe having cross-sectional area (a) of 730 mm<sup>2</sup>. The stand-pipe level changed from 1650 mm (h<sub>1</sub>) to 550 mm (h<sub>2</sub>) above the reservoir datum during a time interval (t) of 182 sec. Determine the coefficient of permeability of the soil.",
 			"answers": {
 				"a": "0.12",
 				"b": "0.14",
