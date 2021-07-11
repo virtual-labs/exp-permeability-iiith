@@ -12,7 +12,7 @@
 ### Variable Head Test
 1. Add a mould from the apparatus menu. 
 2. Add a soil sample from the apparatus menu. The sample is directly added to the permeameter mould. It is assumed that the soil has been mixed with a sufficient quantity of distilled water to prevent the segregation of particle sizes during placement into the permeameter. Enough water should be added so that the mixture may flow freely. Also, the soil is compacted using a tamping device. Finally, the soil dimensions are measured as is visible from the values in the observations menu.
-3. Add filters from the apparatus menu to the top and bottom of the mould. Each of the filters has an attached pipe for inflow/outflow of liquid. Additionally, the top filter pipe has an attached stand pipe used for the measurement of change in the water head and its cross-sectional area is determined as is visible from the value in the observions menu.
+3. Add filters from the apparatus menu to the top and bottom of the mould. Each of the filters has an attached pipe for inflow/outflow of liquid. Additionally, the top filter pipe has an attached stand pipe used for the measurement of change in the water head and its cross-sectional area is determined as is visible from the value in the observations menu.
 4. Add water from the apparatus menu to the top filter's stand pipe.
 5. Add a filled tank from the apparatus menu. The mould is placed inside the tank. 
 6. Add a container from the apparatus menu to collect the outgoing liquid (water). The container has markings to help determine the quantity of water collected.
