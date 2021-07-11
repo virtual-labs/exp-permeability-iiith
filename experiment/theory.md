@@ -3,23 +3,23 @@ Permeability is defined as the property of porous material which permits the pas
 	1. Variable head test <br />
 	The variable head test is used for fine grained soils like silts and silty clays. <br />
 	k = 2.203 * a * L * log<sub>10</sub> (h<sub>1</sub> / h<sub>2</sub>) / (A * t) <br />
-	where, k = Coefficient of permeability at T<sup>o</sup>C (cm/sec) <br />
-	a = Cross Sectional area of stand pipe (cm<sup>2</sup>) <br />
-	L = Length of soil specimen (cm) <br />
-	A = Cross-sectional area of soil sample inside the mould (cm<sup>2</sup>) <br />
-	t = (t1 – t2) = Time interval for the head to fall from h1 to h2 <br />
-	h1 = Initial head of water at time t1 in the pipe, measured above the outlet <br />
-	h2 = Final head of water at time t2 in the pipe, measured above the outlet <br />
+	> where, k = Coefficient of permeability at T<sup>o</sup>C (cm/sec) <br />
+	> a = Cross Sectional area of stand pipe (cm<sup>2</sup>) <br />
+	> L = Length of soil specimen (cm) <br />
+	> A = Cross-sectional area of soil sample inside the mould (cm<sup>2</sup>) <br />
+	> t = (t1 – t2) = Time interval for the head to fall from h1 to h2 <br />
+	> h1 = Initial head of water at time t1 in the pipe, measured above the outlet <br />
+	> h2 = Final head of water at time t2 in the pipe, measured above the outlet <br />
 	2. Constant head test <br />
 	The Constant head test is suitable for coarse grained soils like sands and sandy silts. <br />
 	k = Q / (t * i * A) = Q * L / (t * h * A) <br />
-	where, k = Coefficient of permeability at T<sup>o</sup>C (cm/sec) <br />
-	L = Length of soil specimen (cm) <br />
-	A = Cross-sectional area of soil sample inside the mould (cm<sup>2</sup>) <br />
-	i = Hydraulic gradients <br />
-	Q = Quantity of water collected in measuring jar <br />
-	t = Total time required for collecting ‘Q’ quantity of water <br />
-	h = Difference in the water levels of the overhead and bottom tank <br />
+	> where, k = Coefficient of permeability at T<sup>o</sup>C (cm/sec) <br />
+	> L = Length of soil specimen (cm) <br />
+	> A = Cross-sectional area of soil sample inside the mould (cm<sup>2</sup>) <br />
+	> i = Hydraulic gradients <br />
+	> Q = Quantity of water collected in measuring jar <br />
+	> t = Total time required for collecting ‘Q’ quantity of water <br />
+	> h = Difference in the water levels of the overhead and bottom tank <br />
 
 2. Field methods:
 	1. Pumping out test

@@ -19,7 +19,7 @@
 			"correctAnswer": "a"
 		},
 		{
-			"question": "2. Due to change in temperature, the viscosity (μ) of the liquid reduced by and 40%. What is the change in the permeability of the soil?",
+			"question": "2. Due to change in temperature, the viscosity (μ) of the liquid reduced by 40%. What is the change in the permeability of the soil?",
 			"answers": {
 				"a": "Reduces to 60%",
 				"b": "Reduces by 40%",
@@ -63,7 +63,7 @@
 			"explanations": {
 				"a": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil and has nothing to do with the energy of the water.",
 				"b": "Conductivity is the measure of the ease at which an electric charge or heat can pass through a material whereas coefficient of permeability of soil is a measure of the ease with which water flows through the soil. Hence, this is incorrect.",
-				"c": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil. Hydraulic conductivity is defined as the ability of a porous medium to transmit water under saturated or nearly saturated conditions. Hence, coefficient of permeability of a soil can also be called as hydraulic conductivity of soil.",
+				"c": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil. Hydraulic conductivity is defined as the ability of a porous medium to transmit water under saturated or nearly saturated conditions. Hence, coefficient of permeability of soil can also be called as hydraulic conductivity of soil.",
 				"d": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil and has nothing to do with the potential of the water."
 			},
 			"difficulty": "intermediate",
