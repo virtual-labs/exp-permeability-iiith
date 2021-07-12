@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 
 		draw(ctx) {
-			ctx.fillStyle = "#1ca3ec";
+			ctx.fillStyle = data.colors.blue;
 			ctx.beginPath();
 			ctx.rect(this.pos[0] + 5, this.pos[1] + this.height - 5, this.width - 10, -this.waterHeight);
 			ctx.closePath();
@@ -91,14 +91,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		draw(ctx) {
 			ctx.beginPath();
-			ctx.fillStyle = "#654321";
+			ctx.fillStyle = data.colors.soilBrown;
 			ctx.lineWidth = 0.001;
 			ctx.beginPath();
 			ctx.rect(this.pos[0], this.pos[1], this.width, this.height);
 			ctx.closePath();
 			ctx.fill();
 
-			ctx.fillStyle = "#1ca3ec";
+			ctx.fillStyle = data.colors.blue;
 			ctx.globalAlpha = 0.3;
 			ctx.beginPath();
 			ctx.rect(this.pos[0], this.pos[1], this.width, this.waterHeight);
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.lineWidth = 4;
 
 			// Main mould
-			ctx.fillStyle = "#A9A9A9";
+			ctx.fillStyle = data.colors.gray;
 			ctx.beginPath();
 			ctx.rect(this.pos[0], this.pos[1] + this.height - mouldHeight + filterHeight, mouldWidth, mouldHeight - 2 * filterHeight);
 			ctx.closePath();
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			ctx.stroke();
 
 			// Green filters
-			ctx.fillStyle = "#A4C652";
+			ctx.fillStyle = data.colors.green;
 			if(this.filter)
 			{
 				ctx.beginPath();
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				ctx.stroke();
 			}
 	
-			ctx.fillStyle = "#1ca3ec";
+			ctx.fillStyle = data.colors.blue;
 			ctx.beginPath();
 
 			if(this.waterHeight > 0)
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			const gap = 5;
 
 			ctx.lineWidth = 4;
-			ctx.fillStyle = "#1ca3ec";
+			ctx.fillStyle = data.colors.blue;
 			ctx.beginPath();
 			ctx.rect(this.pos[0], this.pos[1] + (this.height - this.innerWaterHeight), this.width, this.innerWaterHeight);
 			ctx.closePath();
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			ctx.beginPath();
 			ctx.lineWidth = 6;
-			ctx.strokeStyle = '#1ca3ec';
+			ctx.strokeStyle = data.colors.blue;
 			ctx.moveTo(this.pos[0] + this.width, this.pos[1] - 4);
 			if(this.waterHeight > this.outlet[1])
 			{
@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	canvas.style = "border:3px solid";
 	const ctx = canvas.getContext("2d");
 
-	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 150;
+	const border = "black", lineWidth = 1.5, fps = 150;
 	const msgs = [
 		"Click on 'Mould' in the apparatus menu to add a mould to the workspace.",
 		"Click on 'Soil Sample' in the apparatus menu to add a soil sample to the mould.",
