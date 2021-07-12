@@ -1,31 +1,21 @@
- Procedure for the experiment is as follows.
-
-**a) Preparation of remoulded soil specimen:**	
-i. Weight the required quantity of oven dried soil sample. Evenly sprinkle the calculated quantity of water corresponding to the OMC. Mix the soil sample thoroughly.
-ii. Clean the mould and apply a small portion of grease inside the mould and around the porous stones in the base plate. Weight the mould and attach the collar to it. Fix the mould on the compaction base plate. Keep the apparatus on solid base.
-iii. The soil sample is placed inside the mould, and is compacted by the standard Proctor compaction tools, to achieve a dry density equal to the pre-determine3d MDD. Weight the mould along with the compacted soil.
-iv. Saturate the porous stones. Place the filter papers on both ends of the soil specimen in the mould. Attach the mould with the drainage base and cap having saturated porous stones.
-
-**b) Saturation of soil specimen:**
-i. Connect the water reservoir to the outlet at the bottom of the mould and allow the water to flow in the soil. Wait till the water has been able to travel up and saturate the sample. Allow about 1 cm depth of free water to collect on the top of the sample.
-ii. Fill the remaining portion of cylinder with de-aired water without disturbing the surface of soil.
-iii. Fix the cover plate over the collar and tighten the nuts in the rods.
-
-**c) Constant head test:**
-i. Place the mould assembly in the bottom tank and fill the bottom tank with water up to the outlet.
-ii. Connect the outlet tube with constant head tank to the inlet nozzle of the permeameter, after removing the air in flexible rubber tubing connecting the tube.
-iii. Adjust the hydraulic head by either adjusting the relative hight of the permeameter mould and constant head tank or by rising or lowering the air intake tube with in the head tank.
-iv. Start the stop watch and at the same time put a bucket under the outlet of the bottom tank, run the test for same convenient time interval and measure.
-v. Repeat the test twice more, under the same head and for the same time interval.
-
-**d) Variable head permeability test method:**
-i. Disconnect the water reservoir from the outlet at the bottom and connect the stand pipe to the inlet at the top plate.
-ii. Fill the stand pipe with water. Open the stop cock at the top and allow water to flow out so that all the air in the cylinder is removed.
-iii. Fix the height h1 and h2 on the stand pipe from the centre of the outlet such that (h1 ¡V h2) is about 30 cm to 40 cm.
-iv. When all the air has escaped, close the stop clock and allow the water from the pipe to flow through the soil and establish a steady flow.
-v. Record the time interval, t, for the head to drop from h1 to h2.
-vi. Take about five such observations by changing the values of h1 and h2.
-vii. Measure the temperature of water.
+### Constant Head Test
+1. Add a permeameter from the apparatus menu. 
+2. Add a soil sample from the apparatus menu. The sample is directly added to the permeameter mould. It is assumed that the soil has been mixed with a sufficient quantity of distilled water to prevent the segregation of particle sizes during placement into the permeameter. Enough water should be added so that the mixture may flow freely. Also, the soil is compacted using a tamping device. Finally, the soil dimensions are measured as is visible from the values in the observations menu.
+3. Add filters from the apparatus menu to the top and bottom of the permeameter. Each of the filters has an attached pipe for inflow/outflow of liquid. 
+4. Add a water supply from the apparatus menu to the top filter's pipe. This consists of a filled reservoir and a tap. The tap is to maintain a constant head at the input/reservoir.
+5. Add a container from the apparatus menu to collect the outgoing liquid (water). The container has markings to help determine the quantity of water collected.
+6. Allow water to flow through the permeameter (and hence the soil) by clicking on the reservoir. Observe the change in the water heads at the two manometers. Note that before the main procedure (water flow), some water is allowed to pass through to saturate the sample.
+7. The water flows at a steady rate. Various values such as the time taken, quantity of water, and the constant head are recorded as is visible from the table. The procedure is repeated for different head values. Finally, the permeability is computed for each of the different trials using the formula mentioned in the theory.
+8. Click the restart button to perform the experiment again.
 
 
-[Read More](Exp-6 Permeability.pdf)
+### Variable Head Test
+1. Add a mould from the apparatus menu. 
+2. Add a soil sample from the apparatus menu. The sample is directly added to the permeameter mould. It is assumed that the soil has been mixed with a sufficient quantity of distilled water to prevent the segregation of particle sizes during placement into the permeameter. Enough water should be added so that the mixture may flow freely. Also, the soil is compacted using a tamping device. Finally, the soil dimensions are measured as is visible from the values in the observations menu.
+3. Add filters from the apparatus menu to the top and bottom of the mould. Each of the filters has an attached pipe for inflow/outflow of liquid. Additionally, the top filter pipe has an attached stand pipe used for the measurement of change in the water head and its cross-sectional area is determined as is visible from the value in the observations menu.
+4. Add water from the apparatus menu to the top filter's stand pipe.
+5. Add a filled tank from the apparatus menu. The mould is placed inside the tank. 
+6. Add a container from the apparatus menu to collect the outgoing liquid (water). The container has markings to help determine the quantity of water collected.
+7. Allow water to flow through the mould (and hence the soil) by clicking on the mould. Observe the change in the water head in the stand pipe.
+7. The water flows at a steady rate. Various values such as the time taken, starting head, and the final head are recorded as is visible from the table. The procedure is repeated for different starting head values. Finally, the permeability is computed for each of the different trials using the formula mentioned in the theory.
+8. Click the restart button to perform the experiment again.

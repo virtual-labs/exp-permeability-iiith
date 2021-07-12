@@ -1,93 +1,73 @@
-[
-{"question":"1. Constant head method is suitable for _________ type of soils",
-"answers":{
-            "a":"Coarse grained soils",
-            "b":"Fine grained soils",
-            "c":"Cohesive soils",
-            "d":"Cohesion less soils"
-          },
-"correctAnswer":"a"},
-
-{"question":"2. Variable head test is suitable for _______ type of soils",
-"answers":{
-            "a":"Coarse grained soils",
-            "b":"Fine grained soils",
-            "c":"Cohesive soils",
-            "d":"Cohesion less soils"
-          },
-"correctAnswer":"b"}, 
-
-{"question":"3. Which test is used to find the coefficient of permeability of a partially saturated soil",
-"answers":{
-            "a":"Constant head method",
-            "b":"Variable head test",
-            "c":"Capillary permeability test",
-            "d":"Consolidation test data"
-          },
- "correctAnswer":"c"},
-
-{"question":"4. For a fully saturated soil ______ is the permeability",
-"answers":{
-            "a":"More",
-            "b":"Less",
-            "c":"Zero",
-            "d":"Both a and b"
-          },
-"correctAnswer":"a"},
-
-{"question":"5. Coefficient of permeability by variable head test is given by",
-"answers":{
-            "a":"k=al/At ln(h1/h2)",
-            "b":"k=a/At ln(h2/h1)",
-            "c":"k=al/At ln(h2/h1)",
-            "d":"k=a/At ln(h1/h2)"
-          },
-"correctAnswer":"a"},
-
-{"question":"6. If size of the particle increases 2 times then K increases to ",
-"answers":{
-            "a":"4 Times",
-            "b":"2 Times",
-            "c":"Decreases",
-            "d":"Remains same"
-          },
-"correctAnswer":"a"},
-
-{"question":"7. Soil with largest void ratio have ______permeability",
-"answers":{
-            "a":"Less",
-            "b":"More",
-            "c":"Equal",
-            "d":"Zero"
-          },
-"correctAnswer":"a"},
-
-{"question":"8. Due to change of temperature, the ᵞw and µ of the liquid reduced by 10% and 40% respectively. What is the change in the permeability of the soil ",
-"answers":{
-            "a":"Reduces by 10%",
-            "b":"Reduces by 90%",
-            "c":"Reduces by 40%",
-            "d":"Both a and b"
-          },
-"correctAnswer":"d"},
-
-{"question":"9. Permeable soil has a K (cm/sec)value of ",
-"answers":{
-            "a":"> 0.1",
-            "b":"< 0",
-            "c":"=0",
-            "d":"None"
-          },
-"correctAnswer":"a"},
-
-{"question":"10. Coefficient of permeability is also called as",
-"answers":{
-            "a":"Hydraulic conductivity",
-            "b":"Conductivity",
-            "c":"Energy of water",
-            "d":"Potential of water"
-          },
-"correctAnswer":"a"}
-
-
-]
+{
+	"version": 2.0,
+	"questions": [
+		{
+			"question": "1. The constant head method is suitable for ____ type of soils.",
+			"answers": {
+				"a": "Coarse grained soils",
+				"b": "Fine grained soils",
+				"c": "Cohesive soils",
+				"d": "Cohesion less soils"
+			},
+			"explanations": {
+				"a": "It is possible to maintain a constant head and measure the required quantities for coarse grained soils.",
+				"b": "It is difficult to maintain a constant head and measure the required quantities for fine grained soils. The variable/falling head test is more suitable.",
+				"c": "It is difficult to maintain a constant head and measure the required quantities for cohesive soils. The variable/falling head test is more suitable.",
+				"d": "While it can be used for these kinds of soils, it is more suitable for another of the above options."
+			},
+			"difficulty": "beginner",
+			"correctAnswer": "a"
+		},
+		{
+			"question": "2. The variable head test is suitable for ____ type of soils.",
+			"answers": {
+				"a": "Coarse grained soils",
+				"b": "Fine grained soils",
+				"c": "Cohesive soils",
+				"d": "Cohesion less soils"
+			},
+			"explanations": {
+				"a": "It is difficult to measure the required quantities as water flows very quickly through highly pervious soils.",
+				"b": "Permeability is the measure of ability of a soil to allow the flow of water through its pores or voids. The variable head test is suitable for determining permeability of less pervious soils.",
+				"c": "While it can be used for these kinds of soils, it is more suitable for another of the above options.",
+				"d": "It is difficult to measure the required quantities as water flows very quickly through highly pervious soils."
+			},
+			"difficulty": "beginner",
+			"correctAnswer": "b"
+		},
+		{
+			"question": "3. Which test is used to find the coefficient of permeability of a partially saturated soil?",
+			"answers": {
+				"a": "Constant head method",
+				"b": "Variable head test",
+				"c": "Capillary permeability test",
+				"d": "Consolidation test data"
+			},
+			"explanations": {
+				"a": "",
+				"b": "",
+				"c": "For partially saturated soils, the capillary test is used to determine the coefficient of permeability. It better estimates the flow through soil by considering seepage properties of soil.",
+				"d": ""
+			},
+			"difficulty": "intermediate",
+			"correctAnswer": "c"
+		},
+		{
+			"question": "4. The coefficient of permeability by the variable head test is given by which of the following formulas?",
+			"answers": {
+				"a": "a * l * ln (h<sub>1</sub> / h<sub>2</sub>) / (A * t)",
+				"b": "a * ln (h<sub>2</sub> / h<sub>1</sub>) / (A * t)",
+				"c": "a * l * ln (h<sub>2</sub> / h<sub>1</sub>) / (A * t)",
+				"d": "a * ln (h<sub>1</sub> / h<sub>2</sub>) / (A * t)"
+			},
+			"explanations": {
+				"a": "This is a direct formula question.",
+				"b": "The numerator is incorrect. One quantity is missing and the division order inside the ln part is incorrect.",
+				"c": "The numerator is incorrect. The division order inside the ln part is incorrect.",
+				"d": "The numerator is incorrect. One quantity is missing."
+			},
+			"difficulty": "intermediate",
+			"correctAnswer": "a"
+		}
+	]
+}
