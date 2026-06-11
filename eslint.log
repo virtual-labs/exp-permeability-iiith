@@ -1,0 +1,106 @@
+
+/home/runner/work/exp-permeability-iiith/exp-permeability-iiith/experiment/simulation/js/main.js
+    6:8   warning  'instrMsg' is assigned a value but never used   no-unused-vars
+   16:22  warning  'table' is not defined                          no-undef
+   17:18  warning  'table' is not defined                          no-undef
+   27:3   warning  Unnecessary semicolon                           no-extra-semi
+   31:3   warning  Unnecessary semicolon                           no-extra-semi
+   35:3   warning  Unnecessary semicolon                           no-extra-semi
+   46:3   warning  Unnecessary semicolon                           no-extra-semi
+   56:3   warning  Unnecessary semicolon                           no-extra-semi
+   67:4   warning  Unnecessary semicolon                           no-extra-semi
+   70:20  warning  'data' is not defined                           no-undef
+   77:4   warning  Unnecessary semicolon                           no-extra-semi
+   78:3   warning  Unnecessary semicolon                           no-extra-semi
+   86:4   warning  Unnecessary semicolon                           no-extra-semi
+   90:20  warning  'data' is not defined                           no-undef
+   97:20  warning  'data' is not defined                           no-undef
+  104:4   warning  Unnecessary semicolon                           no-extra-semi
+  105:3   warning  Unnecessary semicolon                           no-extra-semi
+  117:4   warning  Unnecessary semicolon                           no-extra-semi
+  124:20  warning  'data' is not defined                           no-undef
+  132:20  warning  'data' is not defined                           no-undef
+  176:20  warning  'data' is not defined                           no-undef
+  272:4   warning  Unnecessary semicolon                           no-extra-semi
+  273:3   warning  Unnecessary semicolon                           no-extra-semi
+  281:4   warning  Unnecessary semicolon                           no-extra-semi
+  285:20  warning  'data' is not defined                           no-undef
+  297:4   warning  Unnecessary semicolon                           no-extra-semi
+  298:3   warning  Unnecessary semicolon                           no-extra-semi
+  308:4   warning  Unnecessary semicolon                           no-extra-semi
+  312:4   warning  Unnecessary semicolon                           no-extra-semi
+  313:3   warning  Unnecessary semicolon                           no-extra-semi
+  323:4   warning  Unnecessary semicolon                           no-extra-semi
+  330:20  warning  'data' is not defined                           no-undef
+  337:4   warning  Unnecessary semicolon                           no-extra-semi
+  338:3   warning  Unnecessary semicolon                           no-extra-semi
+  361:3   warning  Unnecessary semicolon                           no-extra-semi
+  370:3   warning  'table' is not defined                          no-undef
+  374:3   warning  Unnecessary semicolon                           no-extra-semi
+  379:30  warning  'ind' is defined but never used                 no-unused-vars
+  385:3   warning  Unnecessary semicolon                           no-extra-semi
+  388:34  warning  'ind' is defined but never used                 no-unused-vars
+  390:47  warning  'i' is defined but never used                   no-unused-vars
+  396:3   warning  Unnecessary semicolon                           no-extra-semi
+  410:30  warning  'ind' is defined but never used                 no-unused-vars
+  429:3   warning  Unnecessary semicolon                           no-extra-semi
+  437:8   warning  'border' is assigned a value but never used     no-unused-vars
+  437:26  warning  'lineWidth' is assigned a value but never used  no-unused-vars
+  461:34  warning  'ind' is defined but never used                 no-unused-vars
+  463:42  warning  'event' is defined but never used               no-unused-vars
+  507:3   warning  Unnecessary semicolon                           no-extra-semi
+  522:35  warning  'ind' is defined but never used                 no-unused-vars
+  574:3   warning  Unnecessary semicolon                           no-extra-semi
+
+/home/runner/work/exp-permeability-iiith/exp-permeability-iiith/experiment/simulation/js/variable.js
+    6:8   warning  'instrMsg' is assigned a value but never used   no-unused-vars
+   16:22  warning  'table' is not defined                          no-undef
+   17:18  warning  'table' is not defined                          no-undef
+   26:3   warning  Unnecessary semicolon                           no-extra-semi
+   30:3   warning  Unnecessary semicolon                           no-extra-semi
+   34:3   warning  Unnecessary semicolon                           no-extra-semi
+   38:3   warning  Unnecessary semicolon                           no-extra-semi
+   50:3   warning  Unnecessary semicolon                           no-extra-semi
+   60:3   warning  Unnecessary semicolon                           no-extra-semi
+   71:4   warning  Unnecessary semicolon                           no-extra-semi
+   74:20  warning  'data' is not defined                           no-undef
+   81:4   warning  Unnecessary semicolon                           no-extra-semi
+   82:3   warning  Unnecessary semicolon                           no-extra-semi
+   90:4   warning  Unnecessary semicolon                           no-extra-semi
+   94:20  warning  'data' is not defined                           no-undef
+  101:20  warning  'data' is not defined                           no-undef
+  108:4   warning  Unnecessary semicolon                           no-extra-semi
+  109:3   warning  Unnecessary semicolon                           no-extra-semi
+  120:4   warning  Unnecessary semicolon                           no-extra-semi
+  127:20  warning  'data' is not defined                           no-undef
+  135:20  warning  'data' is not defined                           no-undef
+  159:20  warning  'data' is not defined                           no-undef
+  189:4   warning  Unnecessary semicolon                           no-extra-semi
+  200:4   warning  Unnecessary semicolon                           no-extra-semi
+  201:3   warning  Unnecessary semicolon                           no-extra-semi
+  211:4   warning  Unnecessary semicolon                           no-extra-semi
+  217:20  warning  'data' is not defined                           no-undef
+  234:22  warning  'data' is not defined                           no-undef
+  251:4   warning  Unnecessary semicolon                           no-extra-semi
+  252:3   warning  Unnecessary semicolon                           no-extra-semi
+  276:3   warning  Unnecessary semicolon                           no-extra-semi
+  285:3   warning  'table' is not defined                          no-undef
+  289:3   warning  Unnecessary semicolon                           no-extra-semi
+  294:30  warning  'ind' is defined but never used                 no-unused-vars
+  300:3   warning  Unnecessary semicolon                           no-extra-semi
+  303:34  warning  'ind' is defined but never used                 no-unused-vars
+  305:47  warning  'i' is defined but never used                   no-unused-vars
+  311:3   warning  Unnecessary semicolon                           no-extra-semi
+  325:30  warning  'ind' is defined but never used                 no-unused-vars
+  344:3   warning  Unnecessary semicolon                           no-extra-semi
+  352:8   warning  'border' is assigned a value but never used     no-unused-vars
+  352:26  warning  'lineWidth' is assigned a value but never used  no-unused-vars
+  375:34  warning  'ind' is defined but never used                 no-unused-vars
+  377:42  warning  'event' is defined but never used               no-unused-vars
+  425:3   warning  Unnecessary semicolon                           no-extra-semi
+  440:35  warning  'ind' is defined but never used                 no-unused-vars
+  498:3   warning  Unnecessary semicolon                           no-extra-semi
+
+✖ 98 problems (0 errors, 98 warnings)
+  0 errors and 56 warnings potentially fixable with the `--fix` option.
+
