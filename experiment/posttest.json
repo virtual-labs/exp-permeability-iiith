@@ -1,107 +1,158 @@
 {
-	"version": 2.0,
-	"questions": [
-		{
-			"question": "1. For clay soils, soils with greater void ratios have ____ permeability.",
-			"answers": {
-				"a": "Less",
-				"b": "More",
-				"c": "Equal",
-				"d": "Zero"
-			},
-			"explanations": {
-				"a": "In general, permeability increases with void ratio. But it is not applicable to all types of soils. For example, clay has a higher void ratio than any other types of soil but permeability for clays is very low. This is because the flow path through voids in case of clays is extremely small such that water cannot flow through this path easily.",
-				"b": "In general, permeability increases with void ratio. But it is not applicable to all types of soils. For example, clay has a higher void ratio than any other types of soil but permeability for clays is very low.",
-				"c": "There is a direct correlation between void ratio and permability and hence this cannot be the answer.",
-				"d": "This is nearly impossible to achieve."
-			},
-			"difficulty": "beginner",
-			"correctAnswer": "a"
-		},
-		{
-			"question": "2. Due to change in temperature, the viscosity (μ) of the liquid reduced by 40%. What is the change in the permeability of the soil?",
-			"answers": {
-				"a": "Reduces to 60%",
-				"b": "Reduces by 40%",
-				"c": "Reduces by 10%",
-				"d": "Both a & b"
-			},
-			"explanations": {
-				"a": "Coefficient of permeability is inversely proportional to the viscosity of the fluid. While this is the right answer, this is not the complete answer.",
-				"b": "Coefficient of permeability is inversely proportional to the viscosity of the fluid. While this is the right answer, this is not the complete answer.",
-				"c": "Coefficient of permeability is inversely proportional to the viscosity of the fluid. The relation is direct without any constants or scaling factors.",
-				"d": "Coefficient of permeability is inversely proportional to the viscosity of the fluid."
-			},
-			"difficulty": "beginner",
-			"correctAnswer": "d"
-		},
-		{
-			"question": "3. Permeable soil has a K (cm / sec) value of ____.",
-			"answers": {
-				"a": ">0.1",
-				"b": "<0.1",
-				"c": "=0",
-				"d": "None of the above"
-			},
-			"explanations": {
-				"a": "Greater the permeability value, the more permeable the soil will be.",
-				"b": "A soil cannot be noticably permeable if it has a very small permeability value.",
-				"c": "A soil cannot be permeable if it has a permeability value of 0.",
-				"d": "One of the above answers accurately describes the relation."
-			},
-			"difficulty": "beginner",
-			"correctAnswer": "a"
-		},
-		{
-			"question": "4. Coefficient of permeability is also called as which of the following?",
-			"answers": {
-				"a": "Energy of water",
-				"b": "Conductivity",
-				"c": "Hydraulic conductivity",
-				"d": "Potential of water"
-			},
-			"explanations": {
-				"a": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil and has nothing to do with the energy of the water.",
-				"b": "Conductivity is the measure of the ease at which an electric charge or heat can pass through a material whereas coefficient of permeability of soil is a measure of the ease with which water flows through the soil. Hence, this is incorrect.",
-				"c": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil. Hydraulic conductivity is defined as the ability of a porous medium to transmit water under saturated or nearly saturated conditions. Hence, coefficient of permeability of soil can also be called as hydraulic conductivity of soil.",
-				"d": "Coefficient of permeability of soil is a measure of the ease with which water flows through the soil and has nothing to do with the potential of the water."
-			},
-			"difficulty": "intermediate",
-			"correctAnswer": "c"
-		},
-		{
-			"question": "5. A constant head permeability test on a medium soil sample having a cross sectional area (A) of 7585 mm<sup>2</sup> yielded the following data: Distance between stand-pipes (L) = 100 mm, Constant head difference (h) = 70.4 mm, Quantity of water collected (Q) = 500 * 10<sup>3</sup> mm<sup>3</sup>, Time of collection (t) = 132 s. Determine the coefficient of permeability of the sand specimen.",
-			"answers": {
-				"a": "0.6",
-				"b": "0.7",
-				"c": "0.8",
-				"d": "0.9"
-			},
-			"explanations": {
-				"a": "This answer is probably obtained by application of an incorrect formula or a calculation error. The formula to be used is: Coefficient of permeability, k = Q * L / (A * t * h).",
-				"b": "We obtain this answer by simply plugging in all the values in the formula: Coefficient of permeability, k = Q * L / (A * t * h).",
-				"c": "This answer is probably obtained by application of an incorrect formula or a calculation error. The formula to be used is: Coefficient of permeability, k = Q * L / (A * t * h).",
-				"d": "This answer is probably obtained by application of an incorrect formula or a calculation error. The formula to be used is: Coefficient of permeability, k = Q * L / (A * t * h)."
-			},
-			"difficulty": "advanced",
-			"correctAnswer": "b"
-		},
-		{
-			"question": "6. In a falling head permeability test, a soil sample of 7585 mm<sup>2</sup> cross-section (A) and 210.2 mm length (L) was subjected to a flow of water from a stand-pipe having cross-sectional area (a) of 730 mm<sup>2</sup>. The stand-pipe level changed from 1650 mm (h<sub>1</sub>) to 550 mm (h<sub>2</sub>) above the reservoir datum during a time interval (t) of 182 sec. Determine the coefficient of permeability of the soil.",
-			"answers": {
-				"a": "0.12",
-				"b": "0.14",
-				"c": "0.16",
-				"d": "0.18"
-			},
-			"explanations": {
-				"a": "We obtain this answer by simply plugging in all the values in the formula: Coefficient of permeability, k = 2.303 * a * L * log (h<sub>1</sub> / h<sub>2</sub>) / (A * t).",
-				"b": "This answer is probably obtained by application of an incorrect formula or a calculation error. The formula to be used is: Coefficient of permeability, k = 2.303 * a * L * log (h<sub>1</sub> / h<sub>2</sub>) / (A * t).",
-				"c": "This answer is probably obtained by application of an incorrect formula or a calculation error. The formula to be used is: Coefficient of permeability, k = 2.303 * a * L * log (h<sub>1</sub> / h<sub>2</sub>) / (A * t).",
-				"d": "This answer is probably obtained by application of an incorrect formula or a calculation error. The formula to be used is: Coefficient of permeability, k = 2.303 * a * L * log (h<sub>1</sub> / h<sub>2</sub>) / (A * t)."
-			},
-			"difficulty": "advanced",
-			"correctAnswer": "a"
-		}
-	]
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. For clay soils, soils with greater void ratios have ____ permeability.",
+      "answers": {
+        "a": "Less",
+        "b": "More",
+        "c": "Equal",
+        "d": "Zero"
+      },
+      "explanations": {
+        "a": "Correct. Although void ratio is generally high in clays, their permeability is very low because the flow paths (voids) are extremely small and highly tortuous, offering great resistance to water flow.",
+        "b": "Incorrect. While higher void ratio usually means more permeability in sands, in clays the effect of pore size is more dominant.",
+        "c": "Incorrect. There is a strong, though complex, relationship between void ratio and permeability.",
+        "d": "Incorrect. Clays have very low permeability, but it is never exactly zero."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "2. Due to a change in temperature, the viscosity (μ) of the liquid is reduced by 40%. What is the change in the permeability of the soil?",
+      "answers": {
+        "a": "Reduces to 60%",
+        "b": "Increases by 66.7%",
+        "c": "Reduces by 40%",
+        "d": "Remains unchanged"
+      },
+      "explanations": {
+        "a": "Incorrect. Permeability is inversely proportional to viscosity. If viscosity decreases, permeability must increase.",
+        "b": "Correct. k is proportional to 1/μ. If μ becomes 0.6μ, then k becomes k/0.6 = 1.667k, which is an increase of 66.7%.",
+        "c": "Incorrect. This would be true if permeability were directly proportional to viscosity.",
+        "d": "Incorrect. Temperature and viscosity have a major impact on the measured coefficient of permeability."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "b"
+    },
+    {
+      "question": "3. A soil is considered 'impermeable' for most practical engineering purposes if its K (cm/sec) value is less than:",
+      "answers": {
+        "a": "10⁻¹ cm/sec",
+        "b": "10⁻³ cm/sec",
+        "c": "10⁻⁷ cm/sec",
+        "d": "10⁻⁹ cm/sec"
+      },
+      "explanations": {
+        "a": "Incorrect. This is a high permeability value typical of clean gravel.",
+        "b": "Incorrect. This is typical of fine sand or silty sand.",
+        "c": "Correct. Soils with permeability less than 10⁻⁷ cm/sec (like intact clays) are generally considered impermeable and are used for liners and cores of dams.",
+        "d": "Incorrect. While extremely low, 10⁻⁷ is the standard practical threshold for 'impermeability'."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "c"
+    },
+    {
+      "question": "4. Coefficient of permeability is also called as which of the following?",
+      "answers": {
+        "a": "Energy of water",
+        "b": "Conductivity",
+        "c": "Hydraulic conductivity",
+        "d": "Potential of water"
+      },
+      "explanations": {
+        "a": "Incorrect. Permeability is a material property, not a state of energy.",
+        "b": "Incorrect. Conductivity is a general term; 'hydraulic conductivity' is the specific term for soil permeability.",
+        "c": "Correct. Hydraulic conductivity is the standard term used in soil mechanics and hydrology to describe the coefficient of permeability.",
+        "d": "Incorrect. Water potential refers to the energy state of water in soil, not the ease of flow."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "c"
+    },
+    {
+      "question": "5. Seepage velocity (vs) is related to discharge velocity (v) and porosity (n) by the formula:",
+      "answers": {
+        "a": "vs = v / n",
+        "b": "vs = v * n",
+        "c": "vs = v + n",
+        "d": "vs = v / (1-n)"
+      },
+      "explanations": {
+        "a": "Correct. Since water only flows through the voids, the actual seepage velocity is higher than the discharge velocity: vs = v / n.",
+        "b": "Incorrect. This would make seepage velocity smaller than discharge velocity, which is physically impossible.",
+        "c": "Incorrect. Velocity and porosity (a ratio) cannot be added.",
+        "d": "Incorrect. This uses the solid fraction instead of the void fraction."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "6. In a stratified soil deposit, the equivalent permeability for flow parallel to the layers (kx) compared to flow perpendicular to the layers (kz) is generally:",
+      "answers": {
+        "a": "kx < kz",
+        "b": "kx > kz",
+        "c": "kx = kz",
+        "d": "kx = 0"
+      },
+      "explanations": {
+        "a": "Incorrect. Flow perpendicular to layers is restricted by the least permeable layer.",
+        "b": "Correct. Flow parallel to layers (kx) is dominated by the most permeable layers, whereas flow perpendicular to layers (kz) is restricted by the least permeable layers. Thus, kx > kz.",
+        "c": "Incorrect. This only happens in perfectly isotropic, uniform soil.",
+        "d": "Incorrect. Permeability is always positive."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "b"
+    },
+    {
+      "question": "7. A constant head permeability test on a medium soil sample having a cross sectional area (A) of 7585 mm² yielded the following data: Distance between stand-pipes (L) = 100 mm, Constant head difference (h) = 70.4 mm, Quantity of water collected (Q) = 500 * 10³ mm³, Time of collection (t) = 132 s. Determine the coefficient of permeability of the specimen.",
+      "answers": {
+        "a": "0.62 mm/s",
+        "b": "0.71 mm/s",
+        "c": "0.85 mm/s",
+        "d": "0.94 mm/s"
+      },
+      "explanations": {
+        "a": "Incorrect. Check your calculation using k = (Q * L) / (A * t * h).",
+        "b": "Correct. k = (500,000 * 100) / (7585 * 132 * 70.4) = 50,000,000 / 70,485,312 = 0.709 ≈ 0.71 mm/s.",
+        "c": "Incorrect. Re-calculate the denominator: A * t * h.",
+        "d": "Incorrect. Ensure you are using the correct units and values in the formula."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "b"
+    },
+    {
+      "question": "8. In a falling head permeability test, a soil sample of 7585 mm² cross-section (A) and 210.2 mm length (L) was subjected to a flow of water from a stand-pipe having cross-sectional area (a) of 730 mm². The stand-pipe level changed from 1650 mm (h1) to 550 mm (h2) during a time interval (t) of 182 sec. Determine the coefficient of permeability.",
+      "answers": {
+        "a": "0.12 mm/s",
+        "b": "0.14 mm/s",
+        "c": "0.16 mm/s",
+        "d": "0.18 mm/s"
+      },
+      "explanations": {
+        "a": "Correct. k = 2.303 * (aL / At) * log10(h1 / h2) = 2.303 * (730 * 210.2 / (7585 * 182)) * log10(1650 / 550) = 2.303 * (153446 / 1380470) * log10(3) = 2.303 * 0.11115 * 0.4771 = 0.122 mm/s.",
+        "b": "Incorrect. Check the calculation of the constant and the log term.",
+        "c": "Incorrect. This value results from an error in the area or length parameters.",
+        "d": "Incorrect. Ensure you are using log base 10 with the 2.303 factor."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "9. If the coefficient of permeability (k) of a soil is 10⁻⁵ cm/s at 20°C, what would be the approximate permeability at 30°C? (Assume viscosity at 20°C = 1.0 mPa·s and at 30°C = 0.8 mPa·s)",
+      "answers": {
+        "a": "0.8 x 10⁻⁵ cm/s",
+        "b": "1.0 x 10⁻⁵ cm/s",
+        "c": "1.25 x 10⁻⁵ cm/s",
+        "d": "1.5 x 10⁻⁵ cm/s"
+      },
+      "explanations": {
+        "a": "Incorrect. Permeability increases as viscosity decreases with higher temperature.",
+        "b": "Incorrect. Temperature significantly affects water viscosity and thus permeability.",
+        "c": "Correct. k1/k2 = μ2/μ1. k2 = k1 * (μ20/μ30) = 10⁻⁵ * (1.0 / 0.8) = 1.25 x 10⁻⁵ cm/s.",
+        "d": "Incorrect. The increase is proportional to the inverse of the viscosity ratio."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "c"
+    }
+  ]
 }
