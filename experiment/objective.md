@@ -1,3 +1,5 @@
- To determine the coefficient of permeability of a given soil sample by Variable head permeability test. 
+The objectives of this experiment are to:
 
-[Read More](Exp-6 Permeability.pdf)
+- Determine the coefficient of permeability of a soil sample using standard laboratory methods.
+- Understand the principles and procedures of the constant head and variable head permeability tests.
+- Learn the significance of soil permeability in seepage and geotechnical engineering applications.

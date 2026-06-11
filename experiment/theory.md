@@ -1,34 +1,85 @@
-Permeability is defined as the property of porous material which permits the passage or seepage of water through its interconnected voids. It is the ease with which water can flow through the soils. The coefficient of permeability is found using the following methods:
-1. Laboratory methods:
-	1. Variable head test <br />
-	The variable head test is used for fine grained soils like silts and silty clays. <br />
-	k = 2.203 * a * L * log<sub>10</sub> (h<sub>1</sub> / h<sub>2</sub>) / (A * t) <br />
-	> where, k = Coefficient of permeability at T<sup>o</sup>C (cm/sec) <br />
-	> a = Cross Sectional area of stand pipe (cm<sup>2</sup>) <br />
-	> L = Length of soil specimen (cm) <br />
-	> A = Cross-sectional area of soil sample inside the mould (cm<sup>2</sup>) <br />
-	> t = (t1 – t2) = Time interval for the head to fall from h1 to h2 <br />
-	> h1 = Initial head of water at time t1 in the pipe, measured above the outlet <br />
-	> h2 = Final head of water at time t2 in the pipe, measured above the outlet <br />
-	2. Constant head test <br />
-	The Constant head test is suitable for coarse grained soils like sands and sandy silts. <br />
-	k = Q / (t * i * A) = Q * L / (t * h * A) <br />
-	> where, k = Coefficient of permeability at T<sup>o</sup>C (cm/sec) <br />
-	> L = Length of soil specimen (cm) <br />
-	> A = Cross-sectional area of soil sample inside the mould (cm<sup>2</sup>) <br />
-	> i = Hydraulic gradients <br />
-	> Q = Quantity of water collected in measuring jar <br />
-	> t = Total time required for collecting ‘Q’ quantity of water <br />
-	> h = Difference in the water levels of the overhead and bottom tank <br />
+Permeability is the property of soil that permits the flow of water through its interconnected void spaces. The ease with which water flows through soil is measured by the coefficient of permeability.
 
-2. Field methods:
-	1. Pumping out test
-	2. Pumping in test
+The coefficient of permeability, denoted by $k$, represents the velocity of flow through a soil under a unit hydraulic gradient and has the dimensions of velocity.
 
-3. Indirect tests:
-	1. Computation from grain size or specific surface
-	2. Horizontal capillarity test
-	3. Consolidation test data
-	
+### Importance of Permeability
 
-The derivation of the coefficient of permeability is based on the assumption of the validity of Darcy’s law to the flow of water in soil. The law is based on the fact that the flow between two points is directly proportional to the pressure differences between the points, the distance, and the connectivity of flow within rocks between the points. The term coefficient of permeability implies the velocity of flow of water through the soil under unit hydraulic gradient, and consequently has the same units as that of velocity.
+Permeability influences:
+
+- Seepage through earth dams.
+- Drainage of foundations.
+- Groundwater flow.
+- Consolidation of soils.
+- Stability of slopes and retaining structures.
+
+Knowledge of permeability is essential for many geotechnical engineering problems.
+
+### Principle of Permeability Tests
+
+The determination of permeability is based on Darcy's law, which states that the rate of flow through a porous medium is proportional to the hydraulic gradient.
+
+$$
+Q=kAi
+$$
+
+where,
+
+- $Q$ = discharge per unit time,
+- $k$ = coefficient of permeability,
+- $A$ = cross-sectional area,
+- $i$ = hydraulic gradient.
+
+#### Constant Head Test
+
+The constant head test is suitable for coarse-grained soils such as sands and gravels.
+
+$$
+k=\frac{QL}{Aht}
+$$
+
+where,
+
+- $Q$ = quantity of water collected,
+- $L$ = length of soil specimen,
+- $A$ = cross-sectional area,
+- $h$ = hydraulic head difference,
+- $t$ = time.
+
+#### Variable Head Test
+
+The variable head test is suitable for fine-grained soils such as silts and clays.
+
+$$
+k=\frac{2.303aL}{At}\log_{10}\left(\frac{h_1}{h_2}\right)
+$$
+
+where,
+
+- $a$ = cross-sectional area of standpipe,
+- $L$ = specimen length,
+- $A$ = specimen area,
+- $t$ = elapsed time,
+- $h_1$ = initial head,
+- $h_2$ = final head.
+
+### Other Methods
+
+Permeability may also be determined by:
+
+1. Pumping out tests.
+2. Pumping in tests.
+3. Indirect methods based on grain size distribution.
+4. Consolidation test data.
+
+### Engineering Applications
+
+Permeability determination is important in:
+
+- Seepage analysis.
+- Earth dam design.
+- Groundwater investigations.
+- Drainage systems.
+- Foundation engineering.
+- Slope stability studies.
+
+Since the movement of water significantly influences the behaviour of soils, the accurate determination of permeability is an essential part of geotechnical engineering investigations.
